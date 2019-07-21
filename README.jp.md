@@ -354,6 +354,8 @@ Diffuse/AlbedoのアルファチャンネルにAlpha/Opacityマスクを含め�
 | Redirector              |            |            | これらはできるだけ早く修正する必要があります |
 | Sprite Sheet            | SS_        |            |                                  |
 | Static Vector Field     | VF_        |            |                                  |
+| Substance Graph Instance   | SGI_       |            |                                  |
+| Substance Instance Factory | SIF_       |            |                                  |
 | Touch Interface Setup   | TI_        |            |                                  |
 | Vector Curve            | Curve_     | _Vector    |                                  |
 
