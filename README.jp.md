@@ -312,6 +312,7 @@ Gamemakin LLC は弁護士では無いです。ですが、どうぞプロジェ
 | Texture (Emissive)      | T_         | _E         |                                  |
 | Texture (Mask)          | T_         | _M         |                                  |
 | Texture (Specular)      | T_         | _S         |                                  |
+| Texture (Metallic)      | T_         | _M         |                                  |
 | Texture (Packed)        | T_         | _*         | 下記の注記 [packing](#anc-textures-packing) を参照 　|
 | Texture Cube            | TC_        |            |                                  |
 | Media Texture           | MT_        |            |                                  |
