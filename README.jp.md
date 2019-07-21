@@ -295,6 +295,7 @@ Gamemakin LLC は弁護士では無いです。ですが、どうぞプロジェ
 | Material Parameter Collection | MPC_ |            |                                  |
 | Subsurface Profile      | SP_        |            |                                  |
 | Physical Materials      | PM_        |            |                                  |
+| Decal                         | M_, MI_    | _Decal     |                                  |
 
 <a name="anc-textures"></a>
 <a name="1.2.6"></a>
