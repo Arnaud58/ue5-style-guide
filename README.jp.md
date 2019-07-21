@@ -286,15 +286,16 @@ Gamemakin LLC は弁護士では無いです。ですが、どうぞプロジェ
 <a name="1.2.5"></a>
 ### 1.2.5 Materials ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
-| Asset Type              | Prefix     | Suffix     | 注意(Notes)                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Material                | M_         |            |                                  |
-| Material (Post Process) | PP_        |            |                                  |
-| Material Function       | MF_        |            |                                  |
-| Material Instance       | MI_        |            |                                  |
-| Material Parameter Collection | MPC_ |            |                                  |
-| Subsurface Profile      | SP_        |            |                                  |
-| Physical Materials      | PM_        |            |                                  |
+| Asset Type                    | Prefix     | Suffix     | 注意(Notes)                      |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Material                      | M_         |            |                                  |
+| Material (Post Process)       | PP_        |            |                                  |
+| Material Function             | MF_        |            |                                  |
+| Material Instance             | MI_        |            |                                  |
+| Material Parameter Collection | MPC_       |            |                                  |
+| Subsurface Profile            | SP_        |            |                                  |
+| Physical Materials            | PM_        |            |                                  |
+| Decal                         | M_, MI_    | _Decal     |                                  |
 
 <a name="anc-textures"></a>
 <a name="1.2.6"></a>
@@ -312,6 +313,7 @@ Gamemakin LLC は弁護士では無いです。ですが、どうぞプロジェ
 | Texture (Emissive)      | T_         | _E         |                                  |
 | Texture (Mask)          | T_         | _M         |                                  |
 | Texture (Specular)      | T_         | _S         |                                  |
+| Texture (Metallic)      | T_         | _M         |                                  |
 | Texture (Packed)        | T_         | _*         | 下記の注記 [packing](#anc-textures-packing) を参照 　|
 | Texture Cube            | TC_        |            |                                  |
 | Media Texture           | MT_        |            |                                  |
@@ -333,27 +335,29 @@ Diffuse/AlbedoのアルファチャンネルにAlpha/Opacityマスクを含め�
 <a name="1.2.7"></a>
 ### 1.2.7 Miscellaneous ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
-| Asset Type              | Prefix     | Suffix     | 注意(Notes)                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Animated Vector Field   | VFA_       |            |                                  |
-| Camera Anim             | CA_        |            |                                  |
-| Color Curve             | Curve_     | _Color     |                                  |
-| Curve Table             | Curve_     | _Table     |                                  |
-| Data Asset              | *_         |            | 接頭辞はクラスに基づいている必要があります |
-| Data Table              | DT_        |            |                                  |
-| Float Curve             | Curve_     | _Float     |                                  |
-| Foliage Type            | FT_        |            |                                  |
-| Force Feedback Effect   | FFE_       |            |                                  |
-| Landscape Grass Type    | LG_        |            |                                  |
-| Landscape Layer         | LL_        |            |                                  |
-| Matinee Data            | Matinee_   |            |                                  |
-| Media Player            | MP_        |            |                                  |
-| Object Library          | OL_        |            |                                  |
-| Redirector              |            |            | これらはできるだけ早く修正する必要があります |
-| Sprite Sheet            | SS_        |            |                                  |
-| Static Vector Field     | VF_        |            |                                  |
-| Touch Interface Setup   | TI_        |            |                                  |
-| Vector Curve            | Curve_     | _Vector    |                                  |
+| Asset Type                 | Prefix     | Suffix     | 注意(Notes)                      |
+| -------------------------- | ---------- | ---------- | -------------------------------- |
+| Animated Vector Field      | VFA_       |            |                                  |
+| Camera Anim                | CA_        |            |                                  |
+| Color Curve                | Curve_     | _Color     |                                  |
+| Curve Table                | Curve_     | _Table     |                                  |
+| Data Asset                 | *_         |            | 接頭辞はクラスに基づいている必要があります |
+| Data Table                 | DT_        |            |                                  |
+| Float Curve                | Curve_     | _Float     |                                  |
+| Foliage Type               | FT_        |            |                                  |
+| Force Feedback Effect      | FFE_       |            |                                  |
+| Landscape Grass Type       | LG_        |            |                                  |
+| Landscape Layer            | LL_        |            |                                  |
+| Matinee Data               | Matinee_   |            |                                  |
+| Media Player               | MP_        |            |                                  |
+| Object Library             | OL_        |            |                                  |
+| Redirector                 |            |            | これらはできるだけ早く修正する必要があります |
+| Sprite Sheet               | SS_        |            |                                  |
+| Static Vector Field        | VF_        |            |                                  |
+| Substance Graph Instance   | SGI_       |            |                                  |
+| Substance Instance Factory | SIF_       |            |                                  |
+| Touch Interface Setup      | TI_        |            |                                  |
+| Vector Curve               | Curve_     | _Vector    |                                  |
 
 <a name="anc-paper2d"></a>
 <a name="1.2.8"></a>
