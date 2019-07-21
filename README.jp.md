@@ -287,7 +287,7 @@ Gamemakin LLC は弁護士では無いです。ですが、どうぞプロジェ
 ### 1.2.5 Materials ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
 | Asset Type                    | Prefix     | Suffix     | 注意(Notes)                      |
-| -----------------------       | ---------- | ---------- | -------------------------------- |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
 | Material                      | M_         |            |                                  |
 | Material (Post Process)       | PP_        |            |                                  |
 | Material Function             | MF_        |            |                                  |
