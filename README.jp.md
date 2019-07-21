@@ -286,15 +286,15 @@ Gamemakin LLC は弁護士では無いです。ですが、どうぞプロジェ
 <a name="1.2.5"></a>
 ### 1.2.5 Materials ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
-| Asset Type              | Prefix     | Suffix     | 注意(Notes)                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Material                | M_         |            |                                  |
-| Material (Post Process) | PP_        |            |                                  |
-| Material Function       | MF_        |            |                                  |
-| Material Instance       | MI_        |            |                                  |
-| Material Parameter Collection | MPC_ |            |                                  |
-| Subsurface Profile      | SP_        |            |                                  |
-| Physical Materials      | PM_        |            |                                  |
+| Asset Type                    | Prefix     | Suffix     | 注意(Notes)                      |
+| -----------------------       | ---------- | ---------- | -------------------------------- |
+| Material                      | M_         |            |                                  |
+| Material (Post Process)       | PP_        |            |                                  |
+| Material Function             | MF_        |            |                                  |
+| Material Instance             | MI_        |            |                                  |
+| Material Parameter Collection | MPC_       |            |                                  |
+| Subsurface Profile            | SP_        |            |                                  |
+| Physical Materials            | PM_        |            |                                  |
 | Decal                         | M_, MI_    | _Decal     |                                  |
 
 <a name="anc-textures"></a>
