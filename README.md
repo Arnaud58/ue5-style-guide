@@ -283,15 +283,16 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 <a name="1.2.5"></a>
 ### 1.2.5 Materials ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Material                | M_         |            |                                  |
-| Material (Post Process) | PP_        |            |                                  |
-| Material Function       | MF_        |            |                                  |
-| Material Instance       | MI_        |            |                                  |
-| Material Parameter Collection | MPC_ |            |                                  |
-| Subsurface Profile      | SP_        |            |                                  |
-| Physical Materials      | PM_        |            |                                  |
+| Asset Type                    | Prefix     | Suffix     | Notes                            |
+| ----------------------------- | ---------- | ---------- | -------------------------------- |
+| Material                      | M_         |            |                                  |
+| Material (Post Process)       | PP_        |            |                                  |
+| Material Function             | MF_        |            |                                  |
+| Material Instance             | MI_        |            |                                  |
+| Material Parameter Collection | MPC_       |            |                                  |
+| Subsurface Profile            | SP_        |            |                                  |
+| Physical Materials            | PM_        |            |                                  |
+| Decal                         | M_, MI_    | _Decal     |                                  |
 
 <a name="anc-textures"></a>
 <a name="1.2.6"></a>
@@ -309,6 +310,7 @@ When naming an asset use these tables to determine the prefix and suffix to use 
 | Texture (Emissive)      | T_         | _E         |                                  |
 | Texture (Mask)          | T_         | _M         |                                  |
 | Texture (Specular)      | T_         | _S         |                                  |
+| Texture (Metallic)      | T_         | _M         |                                  |
 | Texture (Packed)        | T_         | _*         | See notes below about [packing](#anc-textures-packing). |
 | Texture Cube            | TC_        |            |                                  |
 | Media Texture           | MT_        |            |                                  |
@@ -329,27 +331,29 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 <a name="1.2.7"></a>
 ### 1.2.7 Miscellaneous ![#](https://img.shields.io/badge/lint-supported-green.svg)
 
-| Asset Type              | Prefix     | Suffix     | Notes                            |
-| ----------------------- | ---------- | ---------- | -------------------------------- |
-| Animated Vector Field   | VFA_       |            |                                  |
-| Camera Anim             | CA_        |            |                                  |
-| Color Curve             | Curve_     | _Color     |                                  |
-| Curve Table             | Curve_     | _Table     |                                  |
-| Data Asset              | *_         |            | Prefix should be based on class. |
-| Data Table              | DT_        |            |                                  |
-| Float Curve             | Curve_     | _Float     |                                  |
-| Foliage Type            | FT_        |            |                                  |
-| Force Feedback Effect   | FFE_       |            |                                  |
-| Landscape Grass Type    | LG_        |            |                                  |
-| Landscape Layer         | LL_        |            |                                  |
-| Matinee Data            | Matinee_   |            |                                  |
-| Media Player            | MP_        |            |                                  |
-| Object Library          | OL_        |            |                                  |
-| Redirector              |            |            | These should be fixed up ASAP.   |
-| Sprite Sheet            | SS_        |            |                                  |
-| Static Vector Field     | VF_        |            |                                  |
-| Touch Interface Setup   | TI_        |            |                                  |
-| Vector Curve            | Curve_     | _Vector    |                                  |
+| Asset Type                 | Prefix     | Suffix     | Notes                            |
+| -------------------------- | ---------- | ---------- | -------------------------------- |
+| Animated Vector Field      | VFA_       |            |                                  |
+| Camera Anim                | CA_        |            |                                  |
+| Color Curve                | Curve_     | _Color     |                                  |
+| Curve Table                | Curve_     | _Table     |                                  |
+| Data Asset                 | *_         |            | Prefix should be based on class. |
+| Data Table                 | DT_        |            |                                  |
+| Float Curve                | Curve_     | _Float     |                                  |
+| Foliage Type               | FT_        |            |                                  |
+| Force Feedback Effect      | FFE_       |            |                                  |
+| Landscape Grass Type       | LG_        |            |                                  |
+| Landscape Layer            | LL_        |            |                                  |
+| Matinee Data               | Matinee_   |            |                                  |
+| Media Player               | MP_        |            |                                  |
+| Object Library             | OL_        |            |                                  |
+| Redirector                 |            |            | These should be fixed up ASAP.   |
+| Sprite Sheet               | SS_        |            |                                  |
+| Static Vector Field        | VF_        |            |                                  |
+| Substance Graph Instance   | SGI_       |            |                                  |
+| Substance Instance Factory | SIF_       |            |                                  |
+| Touch Interface Setup      | TI_        |            |                                  |
+| Vector Curve               | Curve_     | _Vector    |                                  |
 
 <a name="anc-paper2d"></a>
 <a name="1.2.8"></a>
