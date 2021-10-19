@@ -152,7 +152,7 @@ Tout `Identifiant` devrait s'efforcer de n'avoir que les caractères suivants lo
 
 Le raisonnement est le suivant : cela assurera la plus grande compatibilité de toutes les données sur toutes les plateformes à travers tous les outils, et aidera à prévenir les temps d'arrêt dus à une manipulation de caractères potentiellement mauvaise pour les identifiants dans le code que vous ne contrôlez pas.
 
-<a name="toc"></a>
+<a name="table-of-contents"></a>
 ## Table des matières
 
 > 1. [Conventions de dénomination des Assets](#anc)
