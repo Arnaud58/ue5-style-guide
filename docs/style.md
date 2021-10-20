@@ -1,3 +1,3 @@
-# Gamemakin LLC Style Guide
+# Guide de style de Gamemakin LLC
 
-For information about how Linter scans against the Gamemakin LLC Style Guide, please see the style guide itself at [http://ue4.style](http://ue4.style) as the style guide is marked up with its own Linter annotations.
+Pour plus d'informations sur la façon dont Linter analyse le guide de style de Gamemakin LLC, veuillez consulter le guide de style lui-même à l'adresse [http://ue4.style](http://ue4.style), car il comporte ses propres annotations Linter.
