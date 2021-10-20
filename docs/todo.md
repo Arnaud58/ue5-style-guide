@@ -1,12 +1,12 @@
-# The Future of Linter and the Gamemakin LLC Style Guide
+# L'avenir de Linter et du guide stylistique de Gamemakin LLC
 
-This page documents active efforts with Linter and the Gamemakin LLC Style Guide that may be in progress or otherwise incomplete.
+Cette page documente les efforts actifs de Linter et du guide de style de Gamemakin LLC qui peuvent être en cours ou incomplets.
 
-## Planned Future Features
+## Fonctions futures prévues
 
-1. Finish video tutorial on the creation of a new lint ruleset
-1. Allowing rule scanning to support multiple class matches in a class lint rules map
+1. Terminer le tutoriel vidéo sur la création d'un nouvel ensemble de règles lint.
+1. Permettre à l'analyse des règles de prendre en charge les correspondances de classes multiples dans une carte de classe de règles lint.
 
-## Future Considerations
+## Considérations futures
 
-* Figure out a way to facilitate community lint rule sets
+* Trouver un moyen de faciliter les ensembles de règles de lint communautaires.
