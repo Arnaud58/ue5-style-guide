@@ -1,30 +1,30 @@
-# Welcome to Linter and Gamemakin LLC Style Guide Documentation
+# Bienvenue dans la documentation de Linter et du guide de style de Gamemakin LLC
 
-This is the official documentation for Linter and the [Gamemakin LLC Style Guide](http://ue4.style). If you are looking for help or support, please try the [Gamemakin LLC Community Discord](http://discord.gamemak.in).
+Ceci est la documentation officielle de Linter et du [Guide de style de Gamemakin LLC] (http://ue4.style). Si vous avez besoin d'aide ou de soutien, veuillez essayer le [Discord de la communauté Gamemakin LLC] (http://discord.gamemak.in).
 
-## About Linter
+## À propos de Linter
 
-<div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe width="640" height="320" src="https://www.youtube.com/embed/An0R9OmULO0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="position : relative ; height : 0 ; overflow : hidden ; max-width : 100% ; height : auto ;">.
+    <iframe width="640" height="320" src="https://www.youtube.com/embed/An0R9OmULO0" frameborder="0" allow="accelerometer ; autoplay ; encrypted-media ; gyroscope ; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-Linter is an Unreal Engine 4 plugin available on the Unreal Engine Marketplace that can be used for automated scanning and reporting of a UE4 project's adherence to style guide standards. It can scan through all of your project's content using programmatic rulesets and tell you when you aren't following a rule. This is a fairly common type of tool usually seen in web development, but now we can do it with Unreal Engine!
+Linter est un plugin Unreal Engine 4 disponible sur l'Unreal Engine Marketplace qui peut être utilisé pour un balayage automatisé et un rapport sur l'adhésion d'un projet UE4 aux normes du guide de style. Il peut analyser tout le contenu de votre projet à l'aide de règles programmatiques et vous avertir lorsque vous ne respectez pas une règle. C'est un type d'outil assez commun que l'on voit habituellement dans le développement web, mais maintenant nous pouvons le faire avec Unreal Engine !
 
-By default Linter is bundled with two rule sets:
+Par défaut, Linter est fourni avec deux jeux de règles :
 
-1. The [Unreal Engine Marketplace Guidelines](https://www.unrealengine.com/marketplace-guidelines)
-1. The [Gamemakin LLC Style Guide](http://ue4.style)
+1. Les [Directives du marché d'Unreal Engine] (https://www.unrealengine.com/marketplace-guidelines)
+1. Le [Guide de style de Gamemakin LLC] (http://ue4.style)
 
-## About the Gamemakin LLC Style Guide
+## À propos du guide de style Gamemakin LLC
 
-While Linter is now capable of supporting multiple rule sets, Linter was originally developed with the Gamemakin LLC Style Guide in mind. This style guide is an opinionated set of guidelines written by [Michael Allar](http://www.twitter.com/michaelallar) for Unreal Engine 4 projects that continue to grow, change, and respond to newer and better organization patterns as well as community feedback.
+Bien que Linter soit désormais capable de prendre en charge plusieurs ensembles de règles, Linter a été développé à l'origine en tenant compte du guide de style Gamemakin LLC. Ce guide de style est un ensemble de directives écrites par [Michael Allar] (http://www.twitter.com/michaelallar) pour les projets Unreal Engine 4 qui continuent de croître, de changer et de répondre à des modèles d'organisation plus récents et plus efficaces ainsi qu'aux commentaires de la communauté.
 
-This style guide is not meant to be the definitive solution to all projects, but it is open-sourced in the hopes that those without style guides can use it as a starting point for their practices and try to come to a common consensus to many aspects of working with Unreal Engine 4.
+Ce guide de style n'est pas censé être la solution définitive pour tous les projets, mais il est en libre accès dans l'espoir que ceux qui n'ont pas de guide de style puissent l'utiliser comme point de départ pour leurs pratiques et essayer de parvenir à un consensus commun sur de nombreux aspects du travail avec Unreal Engine 4.
 
-It can be found at the following URL: [http://ue4.style](http://ue4.style)
+Il peut être trouvé à l'URL suivante : [http://ue4.style](http://ue4.style)
 
-## About the Unreal Engine Marketplace Guidelines
+## À propos des directives du marché de l'Unreal Engine
 
-If you are creating content for the Unreal Engine Marketplace, your content must adhere to Epic's guidelines [which can be found on their site](https://www.unrealengine.com/marketplace-guidelines).
+Si vous créez du contenu pour le marché de l'Unreal Engine, votre contenu doit respecter les directives d'Epic [qui se trouvent sur leur site] (https://www.unrealengine.com/marketplace-guidelines).
 
-Linter, Gamemakin LLC, and Michael Allar do not have any control or influence over these guidelines as well as whether your assets meet the required standards for the Unreal Engine Marketplace, but Linter is designed to help you conform to their rules by scanning your project against the rules they will be validated with.
+Linter, Gamemakin LLC et Michael Allar n'ont aucun contrôle ni aucune influence sur ces directives ni sur la conformité de vos ressources aux normes requises pour le Marché du moteur Unreal, mais Linter est conçu pour vous aider à vous conformer à leurs règles en analysant votre projet par rapport aux règles qui seront validées.
