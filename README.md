@@ -44,7 +44,7 @@ Le mot "Carte" (*map*) fait référence à ce qui est communément appelé "nive
 ##### Identifiants
 Un `Identifiant` est tout ce qui sert de "nom". Par exemple le nom d'un asset, d'un matériau, d'une propriété de blueprint, d'une variable, un nom de dossier, de ligne de table de données, etc....
 
-<a name="termes-cas"></a>
+<a name="terms-cases"></a>
 ##### Casses/Notations
 
 Il y a plusieurs façons différentes dont vous pouvez `NoterLesMotsQuandNommer`. Voici quelques types de casses courantes :
@@ -158,7 +158,7 @@ Le raisonnement est le suivant : cela assurera la plus grande compatibilité de 
 > 1. [Conventions de dénomination des Assets](#anc)
 > 1. [Structure du Répertoire](#structure)
 > 1. [Blueprints](#bp)
-> 1. [Static Meshe](#s)
+> 1. [Static Meshes](#s)
 > 1. [Systèmes de Particules](#ps)
 > 1. [Niveaux/Cartes](#levels)
 > 1. [Textures](#textures)
@@ -456,16 +456,16 @@ Il n'est pas recommandé d'inclure 4 canaux de données dans une texture (RGBA),
 
 <a name="2"></a>
 <a name="structure"></a>
-## 2. Content Directory Structure
+## 2. Structure du Répertoire
 
-Equally important as asset names, the directory structure style of a project should be considered law. Asset naming conventions and content directory structure go hand in hand, and a violation of either causes unneeded chaos.
+Tout aussi important que les noms des assets, la manière de structurer le répertoire d'un projet doit être considéré faisant preuve de loi. Les conventions de nommage des assets et la structure des répertoires vont de pair, et une violation de l'une ou l'autre provoque un chaos important.
 
-There are multiple ways to lay out the content of a UE4 project. In this style, we will be using a structure that relies more on filtering and search abilities of the Content Browser for those working with assets to find assets of a specific type instead of another common structure that groups asset types with folders.
+Il existe plusieurs façons de répartir le contenu d'un projet UE5. Dans ce style, nous préférons ici utilisé les capacités de filtrage et de recherche du navigateur de contenu afin de trouver des assets d'un type spécifique plutôt qu'une structure qui regroupe les assets de même types dans un même dossier.
 
-> If you are using the prefix [naming convention](#1.2) above, using folders to contain assets of similar types such as `Meshes`, `Textures`, and `Materials` is a redundant practice as asset types are already both sorted by prefix as well as able to be filtered in the content browser.
+> Si vous utilisez la préfixation comme [ci-dessus](#1.2), utiliser des dossiers qui contiennet des assets de types similaires tels que `Meshes`, `Textures` et `Matériaux` est redondant car les types d'asset sont déjà à la fois triés par préfixe et peuvent être filtrés par le navigateur de contenu.
 
 <a name="2e1"><a>
-### 2e1 Example Project Content Structure
+### 2e1 Exemple de Structure de projet
 <pre>
 |-- Content
     |-- <a href="#2.2">GenericShooter</a>
@@ -518,212 +518,211 @@ There are multiple ways to lay out the content of a UE4 project. In this style, 
             |-- Rifles
 </pre>
 
-The reasons for this structure are listed in the following sub-sections.
+Les raisons de cette structure sont énumérées dans les sous-sections suivantes.
 
 ### Sections
 
-> 2.1 [Folder Names](#structure-folder-names)
+> 2.1 [Noms des dossiers](#structure-folder-names)
 
-> 2.2 [Top-Level Folders](#structure-top-level)
+> 2.2 [Dossiers de premier niveau](#structure-top-level)
 
-> 2.3 [Developer Folders](#structure-developers)
+> 2.3 [Dossiers des développeurs](#structure-developers)
 
-> 2.4 [Maps](#structure-maps)
+> 2.4 [Levels](#structure-maps)
 
 > 2.5 [Core](#structure-core)
 
-> 2.6 [`Assets` and `AssetTypes`](#structure-assettypes)
+> 2.6 [`Assets` et `AssetTypes`](#structure-assettypes)
 
-> 2.7 [Large Sets](#structure-large-sets)
+> 2.7 [Exeptions sur les grands assets](#structure-large-sets)
 
-> 2.8 [Material Library](#structure-material-library)
-
+> 2.8 [Bibliothèque de Matériaux](#structure-material-library)
 
 <a name="2.1"></a>
 <a name="structure-folder-names"><a>
-### 2.1 Folder Names
+### 2.1 Noms de dossiers
 
-These are common rules for naming any folder in the content structure.
+Voici les règles communes pour nommer tout dossier dans la structure de contenu.
 
 <a name="2.1.1"></a>
-#### 2.1.1 Always Use PascalCase[<sup>*</sup>](#terms-cases)
+#### 2.1.1 Toujours utiliser le PascalCase [<sup>*</sup>](#terms-cases)
 
-PascalCase refers to starting a name with a capital letter and then instead of using spaces, every following word also starts with a capital letter. For example, `DesertEagle`, `RocketPistol`, and `ASeriesOfWords`.
+PascalCase consiste à commencer un nom par une majuscule, puis, au lieu d'utiliser des espaces, chaque mot suivant commence également par une majuscule. Par exemple, `DesertEagle`, `PistoletLaser`, et `UneSerieDeMots`.
 
-See [Cases](#terms-cases).
+Voir [Casses](#terms-cases).
 
 <a name="2.1.2"></a>
-#### 2.1.2 Never Use Spaces
+#### 2.1.2 Ne jamais utiliser d'espaces
 
-Re-enforcing [2.1.1](#2.1.1), never use spaces. Spaces can cause various engineering tools and batch processes to fail. Ideally, your project's root also contains no spaces and is located somewhere such as `D:\Project` instead of `C:\Users\My Name\My Documents\Unreal Projects`.
+Pour renforcer [2.1.1](#2.1.1), n'utilisez jamais d'espaces. Les espaces peuvent faire échouer divers outils d'ingénierie et de scripts. Idéalement, la racine de votre projet ne contient pas non plus d'espaces et ressemble à `D:\Projet` plutot que `C:\Users\Mon Nom\Mes Documents\Unreal Projects`.
 
 <a name="2.1.3"></a>
-#### 2.1.3 Never Use Unicode Characters And Other Symbols
+#### 2.1.3 Ne jamais utiliser de caractères Unicode et autres symboles
 
-If one of your game characters is named 'Zoë', its folder name should be `Zoe`. Unicode characters can be worse than [Spaces](#2.1.2) for engineering tool and some parts of UE4 don't support Unicode characters in paths either.
+Si l'un des personnages de votre jeu s'appelle 'Zoë', le nom de son dossier doit être `Zoe`. Les caractères Unicode peuvent être pires que les [Espaces] (#2.1.2) pour les outils d'ingénierie et certaines parties de UE4 et 5 ne supportent pas non plus les caractères Unicode dans les chemins.
 
-Related to this, if your project has [unexplained issues](https://answers.unrealengine.com/questions/101207/undefined.html) and your computer's user name has a Unicode character (i.e. your name is `Zoë`), any project located in your `My Documents` folder will suffer from this issue. Often simply moving your project to something like `D:\Project` will fix these mysterious issues.
+Dans le même ordre d'idées, si votre projet présente des [problèmes inexpliqués](https://answers.unrealengine.com/questions/101207/undefined.html) et que le nom d'utilisateur de votre ordinateur comporte un caractère Unicode (c'est-à-dire que votre nom est `Zoë`), tout projet situé dans votre dossier `My Documents` souffrira de ce problème. Souvent, il suffit de déplacer votre projet dans un dossier tel que `D:\Project` pour résoudre ces problèmes mystérieux.
 
-Using other characters outside `a-z`, `A-Z`, and `0-9` such as `@`, `-`, `_`, `,`, `*`, and `#` can also lead to unexpected and hard to track issues on other platforms, source control, and weaker engineering tools. 
+L'utilisation de caractères autres que `a-z`, `A-Z`, et `0-9` tels que `@`, `-`, `_`, `,`, `*`, et `#` peut également conduire à des problèmes inattendus et difficiles à suivre sur d'autres plateformes, contrôle de source, et outils d'ingénierie plus faibles. 
 
 <a name="2.2"></a>
 <a name="structure-top-level"><a>
-### 2.2 Use A Top Level Folder For Project Specific Assets
+### 2.2 Utiliser les dossier de premier niveau pour les ressources spécifiques au projet
 
-All of a project's assets should exist in a folder named after the project. For example, if your project is named 'Generic Shooter', _all_ of it's content should exist in `Content/GenericShooter`.
+Toutes les ressources d'un projet doivent se trouver dans un dossier portant le nom du projet. Par exemple, si votre projet s'appelle "Generic Shooter", _tout_ son contenu doit se trouver dans `Content/GenericShooter`.
 
-> The `Developers` folder is not for assets that your project relies on and therefore is not project specific. See [Developer Folders](#2.3) for details about this.
+> Le dossier `Developers` ne contient pas les ressources sur lesquelles votre projet repose, et n'est donc pas spécifique au projet. Voir [Developer Folders](#2.3) pour plus de détails à ce sujet.
 
-There are multiple reasons for this approach.
+Il y a de multiples raisons pour cette approche.
 
 <a name="2.2.1"></a>
-#### 2.2.1 No Global Assets
+#### 2.2.1 Pas de biens globaux
 
-Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder, it often becomes much harder to enforce a strict structure layout as assets not in a folder encourages the bad behavior of not having to organize assets.
+Souvent dans les guides de style de code, il est écrit qu'il ne faut pas polluer l'espace de nom global et ceci suit le même principe. Lorsque les assets sont autorisés à exister en dehors d'un dossier de projet, il devient souvent beaucoup plus difficile de faire respecter une structure stricte, car les assets qui ne sont pas dans un dossier encouragent le mauvais comportement consistant à ne pas organiser les autres assets.
 
-Every asset should have a purpose, otherwise it does not belong in a project. If an asset is an experimental test and shouldn't be used by the project it should be put in a [`Developer`](#2.3) folder.
+Chaque assets doit avoir un objectif, sinon il n'a pas sa place dans un projet. Si un assets est un test expérimental et ne doit pas être utilisé par le projet, il doit être placé dans un dossier [`Developer`] (#2.3).
 
 <a name="2.2.2"></a>
-#### 2.2.2 Reduce Migration Conflicts
+#### 2.2.2 Réduire les conflits de migration
 
-When working on multiple projects it is common for a team to copy assets from one project to another if they have made something useful for both. When this occurs, the easiest way to perform the copy is to use the Content Browser's Migrate functionality as it will copy over not just the selected asset but all of its dependencies.
+Lorsqu'on travaille sur plusieurs projets, il est courant qu'une équipe copie des assets d'un projet à l'autre si elle a réalisé quelque chose de communs aux deux. Dans ce cas, la façon la plus simple d'effectuer la copie est d'utiliser la fonction Migrer du navigateur de contenu, car elle copie non seulement la ressource sélectionnée, mais aussi toutes ses dépendances.
 
-These dependencies are what can easily get you into trouble. If two project's assets do not have a top level folder and they happen to have similarly named or already previously migrated assets, a new migration can accidentally wipe any changes to the existing assets.
+Ce sont ces dépendances qui vont facilement vous causer des problèmes. Si les assets de deux projets n'ont pas de dossier de niveau supérieur et qu'ils ont des assets nommés de manière similaire ou déjà migrés, une nouvelle migration peut accidentellement effacer les modifications apportées aux assets existants.
 
-This is also the primary reason why Epic's Marketplace staff enforces the same policy for submitted assets.
+C'est également la principale raison pour laquelle le personnel du marketplace d'Epic applique la même politique aux assets soumis.
 
-After a migration, safe merging of assets can be done using the 'Replace References' tool in the content browser with the added clarity of assets not belonging to a project's top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn't be another top level folder in your Content tree. This method is _100%_ guaranteed to make any migrations that occur completely safe.
+Après une migration, les ressources peuvent être fusionnées en toute sécurité à l'aide de l'outil "Remplacer les références" du navigateur de contenu, avec la précision supplémentaire que les assets n'appartenant pas au dossier de premier niveau d'un projet sont clairement en attente de fusion. Une fois les ressources fusionnées et entièrement migrées, il ne devrait plus y avoir de dossier de premier niveau dans votre arborescence de contenu. Cette méthode est garantie à _100%_ pour que toutes les migrations qui se produisent soient totalement sûres.
 
 <a name="2.2.2e1"></a>
-##### 2.2.2e1 Master Material Example
+##### 2.2.2e1 Exemple de "Master Material"
 
-For example, say you created a master material in one project that you would like to use in another project so you migrated that asset over. If this asset is not in a top level folder, it may have a name like `Content/MaterialLibrary/M_Master`. If the target project doesn't have a master material already, this should work without issue.
+Supposons que vous ayez créé un "master material" dans un projet et que vous souhaitiez l'utiliser dans un autre projet, vous avez donc migré cet asset. Si cet asset n'est pas dans un dossier de niveau supérieur, il peut avoir un nom comme `Content/MaterialLibrary/M_Master`. Si le projet cible n'a pas déjà un "master material", cela devrait fonctionner sans problème.
 
-As work on one or both projects progress, their respective master materials may change to be tailored for their specific projects due to the course of normal development.
+Au fur et à mesure que le travail sur l'un ou les deux projets progresse, leurs "master material" respectifs peuvent être modifiés pour être adaptés à leurs projets spécifiques dans le cadre d'un développement normal.
 
-The issue comes when, for example, an artist for one project created a nice generic modular set of static meshes and someone wants to include that set of static meshes in the second project. If the artist who created the assets used material instances based on `Content/MaterialLibrary/M_Master` as they're instructed to, when a migration is performed there is a great chance of conflict for the previously migrated `Content/MaterialLibrary/M_Master` asset.
+Le problème se pose lorsque, par exemple, un artiste a créé pour un projet un bel ensemble modulaire générique de static meshes et que quelqu'un souhaite inclure cet ensemble de static meshes dans le second projet. Si l'artiste qui a créé les ressources a utilisé des instances de matériaux basées sur `Content/MaterialLibrary/M_Master` comme il en a reçu l'instruction, lorsqu'une migration est effectuée, il y a une grande chance de conflit pour la ressource `Content/MaterialLibrary/M_Master` précédemment migrée.
 
-This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project's master material, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab `Content/MaterialLibrary/M_Master` when it copies these assets to the other project and it will overwrite the existing asset.
+Ce problème peut être difficile à prévoir et à prendre en compte. La personne qui migre les static meshes peut ne pas être la même que celle qui est familière avec le développement du "master material" des deux projets, et elle peut même ne pas être consciente que les static meshes en question reposent sur des instances de matériau qui reposent ensuite sur le "master material". L'outil Migrate a cependant besoin de toute la chaîne de dépendances pour fonctionner, et il sera donc obligé de saisir `Content/MaterialLibrary/M_Master` lorsqu'il copiera ces assets vers l'autre projet et il écrasera l'asset existant.
 
-It is at this point where if the master materials for both projects are incompatible in _any way_, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.
+C'est à ce moment-là que si les "master material" des deux projets sont incompatibles d'une manière ou d'une autre, vous risquez de casser toute la bibliothèque de matériaux d'un projet ainsi que toutes les autres dépendances qui ont déjà été migrées, simplement parce que les assets n'ont pas été stockés dans un dossier de niveau supérieur. La simple migration de static meshes devient maintenant une tâche très laide.
 
 <a name="2.2.3"></a>
-#### 2.2.3 Samples, Templates, and Marketplace Content Are Risk-Free
+#### 2.2.3 Les Samples, Templates et le contenu du Marketplace sont sans risque.
 
-An extension to [2.2.2](#2.2.2), if a team member decides to add sample content, template files, or assets they bought from the marketplace, it is guaranteed, as long your project's top-level folder is uniquely named,that these new assets will not interfere with your project.
+Une extension de [2.2.2](#2.2.2), si un membre de l'équipe décide d'ajouter du contenu d'un Samples, des fichiers de Templates, ou des assets qu'ils ont achetés sur le marché, il est garanti, tant que le dossier de niveau supérieur de votre projet est nommé de manière unique, que ces nouveaux assets n'interféreront pas avec votre projet.
 
-You can not trust marketplace content to fully conform to the [top level folder rule](#2.2). There exists many assets that have the majority of their content in a top level folder but also have possibly modified Epic sample content as well as level files polluting the global `Content` folder.
+Vous ne pouvez pas faire confiance au contenu du Marketplace pour se conformer entièrement à la [règle du dossier de premier niveau] (n° 2.2). Il existe de nombreuses ressources dont la majorité du contenu se trouve dans un dossier de premier niveau, mais qui contiennent également des échantillons de contenu Epic éventuellement modifiés ainsi que des fichiers de niveau polluant le dossier global `Content`.
 
-When adhering to [2.2](#2.2), the worst marketplace conflict you can have is if two marketplace assets both have the same Epic sample content. If all your assets are in a project specific folder, including sample content you may have moved into your folder, your project will never break.
+En adhérant à [2.2](#2.2), le pire conflit du Marketplace que vous pouvez avoir est si deux assets utilisent le même Samples d'Epic. Si toutes vos ressources se trouvent dans un dossier spécifique au projet, y compris le contenu des Samples que vous avez déplacé dans votre dossier, votre projet ne sera jamais inquiété par les problèmes lié à l'importation d'assets.
 
-#### 2.2.4 DLC, Sub-Projects, and Patches Are Easily Maintained
+#### 2.2.4 DLC, sous-projets et correctifs faciles à gérer
 
-If your project plans to release DLC or has multiple sub-projects associated with it that may either be migrated out or simply not cooked in a build, assets relating to these projects should have their own separate top level content folder. This make cooking DLC separate from main project content far easier. Sub-projects can also be migrated in and out with minimal effort. If you need to change a material of an asset or add some very specific asset override behavior in a patch, you can easily put these changes in a patch folder and work safely without the chance of breaking the core project.
+Si votre projet prévoit de publier un DLC ou s'il est associé à plusieurs sous-projets qui peuvent être transférés ou simplement ne pas être inclus lors d'une compilation, les ressources relatives à ces projets doivent avoir leur propre dossier de contenu de niveau supérieur. Cela facilite grandement la compilation du DLC séparément au contenu du projet principal. Les sous-projets peuvent également être migrés vers et hors du projet avec un minimum d'effort. Si vous devez modifier le matériau d'un asset ou ajouter un comportement très spécifique de remplacement d'asset dans un patch, vous pouvez facilement placer ces modifications dans un dossier de patch et travailler en toute sécurité sans risquer de casser le projet principal.
 
 <a name="2.3"></a>
 <a name="structure-developers"></a>
-### 2.3 Use Developers Folder For Local Testing
+### 2.3 Utiliser le dossier des développeurs pour les tests locaux
 
-During a project's development, it is very common for team members to have a sort of 'sandbox' where they can experiment freely without risking the core project. Because this work may be ongoing, these team members may wish to put their assets on a project's source control server. Not all teams require use of Developer folders, but ones that do use them often run into a common problem with assets submitted to source control.
+Au cours du développement d'un projet, il est très courant que les membres de l'équipe disposent d'une sorte de "bac à sable" où ils peuvent expérimenter librement sans risquer de compromettre le projet principal. Comme ce travail peut être continu, ces membres de l'équipe peuvent souhaiter placer leurs ressources sur le serveur de contrôle des sources du projet. Toutes les équipes n'ont pas besoin d'utiliser des dossiers de développeurs, mais celles qui le font rencontrent souvent un problème commun avec les ressources soumises au contrôle de source.
 
-It is very easy for a team member to accidentally use assets that are not ready for use, which will cause issues once those assets are removed. For example, an artist may be iterating on a modular set of static meshes and still working on getting their sizing and grid snapping correct. If a world builder sees these assets in the main project folder, they might use them all over a level not knowing they could be subject to incredible change and/or removal. This causes massive amounts of re-working for everyone on the team to resolve.
+Il est très facile pour un membre de l'équipe d'utiliser accidentellement des ressources qui ne sont pas prêtes à être utilisées, ce qui causera des problèmes une fois ces ressources supprimées. Par exemple, un artiste peut être en train d'itérer sur un ensemble modulaire de Static Meshes et encore en train de travailler sur la dimension et le maillage du meshe. Si un Level Designer voit ces ressources dans le dossier principal du projet, il peut les utiliser dans tout le niveau sans savoir qu'elles peuvent être modifiées et/ou supprimées. Cela entraîne une quantité massive de retravail à résoudre pour tous les membres de l'équipe.
 
-If these modular assets were placed in a Developer folder, the world builder should never have had a reason to use them and the whole issue would never happen. The Content Browser has specific View Options that will hide Developer folders (they are hidden by default) making it impossible to accidentally use Developer assets under normal use.
+Si ces ressources modulaires étaient placées dans un dossier de développeur, le Level Designer n'aurait jamais eu de raison de les utiliser et le problème ne se serait jamais posé. Le navigateur de contenu dispose d'options d'affichage spécifiques qui masquent les dossiers Developer (ils sont masqués par défaut), ce qui rend impossible l'utilisation accidentelle des ressources Developer dans des conditions normales.
 
-Once the assets are ready for use, an artist simply has to move the assets into the project specific folder and fix up redirectors. This is essentially 'promoting' the assets from experimental to production.
+Une fois que les ressources sont prêtes à être utilisées, il suffit à l'artiste de les déplacer dans le dossier spécifique au projet et de corriger les redirecteurs. Il s'agit essentiellement de faire passer les ressources de la phase expérimentale à la phase de production.
 
 <a name="2.4"></a>
 <a name="structure-maps"></a>
-### 2.4 All Map[<sup>*</sup>](#terms-level-map) Files Belong In A Folder Called Maps
+### 2.4 Tous les fichiers Levels[<sup>*</sup>](#terms-level-map) appartiennent à un dossier appelé `Maps` 
 
-Map files are incredibly special and it is common for every project to have its own map naming system, especially if they work with sub-levels or streaming levels. No matter what system of map organization is in place for the specific project, all levels should belong in `/Content/Project/Maps`.
+Les fichiers de carte sont incroyablement spéciaux et il est courant que chaque projet ait son propre système de dénomination des cartes, surtout s'il travaille avec des sous-niveaux ou des streaming level. Quel que soit le système d'organisation des cartes mis en place pour un projet donné, tous les niveaux doivent se trouver dans le dossier `/Content/Project/Maps`.
 
-Being able to tell someone to open a specific map without having to explain where it is is a great time saver and general 'quality of life' improvement. It is common for levels to be within sub-folders of `Maps`, such as `Maps/Campaign1/` or `Maps/Arenas`, but the most important thing here is that they all exist within `/Content/Project/Maps`.
+Pouvoir dire à quelqu'un d'ouvrir une carte spécifique sans avoir à expliquer où elle se trouve est un grand gain de temps et une amélioration générale de la "qualité de vie". Il est courant que les niveaux se trouvent dans des sous-dossiers de `Maps`, comme `Maps/Campaign1/` ou `Maps/Arenas`, mais la chose la plus importante ici est qu'ils existent tous dans `/Content/Project/Maps`.
 
-This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team's maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.
+Cela simplifie également le travail de construction pour les ingénieurs. La manipulation des niveaux dans un processus de construction peut être extrêmement frustrante s'ils doivent fouiller dans des dossiers arbitraires pour les trouver. Si les cartes d'une équipe se trouvent toutes au même endroit, il est beaucoup plus difficile de ne pas compiller une carte par accident lors d'un build. Cela simplifie également les scripts de construction d'éclairage ainsi que les processus d'assurance qualité.
 
 <a name="2.5"></a>
 <a name="structure-core"></a>
-### 2.5 Use A `Core` Folder For Critical Blueprints And Other Assets
+### 2.5 Utilisez un dossier `Core` pour les Blueprints critiques et autres actifs.
 
-Use `/Content/Project/Core` folder for assets that are absolutely fundamental to a project's workings. For example, base `GameMode`, `Character`, `PlayerController`, `GameState`, `PlayerState`, and related Blueprints should live here.
+Utilisez le dossier `/Content/Project/Core` pour les actifs qui sont absolument fondamentaux pour le fonctionnement d'un projet. Par exemple, les Blueprints de base `GameMode`, `Character`, `PlayerController`, `GameState`, `PlayerState`, et les Blueprints associés devraient se trouver ici.
 
-This creates a very clear "don't touch these" message for other team members. Non-engineers should have very little reason to enter the `Core` folder. Following good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.
+Cela crée un message très clair *"ne touchez pas à ça"* pour les autres membres de l'équipe. Les non-ingénieurs devraient avoir très peu de raisons d'entrer dans le dossier `Core`. En suivant le bon style de structure de code, les concepteurs devraient faire leurs modifications de gameplay dans les classes enfant qui exposent les fonctionnalités. Les Levels Designers devraient utiliser des Blueprints préfabriqués dans des dossiers désignés au lieu d'abuser potentiellement des classes de base.
 
-For example, if your project requires pickups that can be placed in a level, there should exist a base Pickup class in `Core/Pickups` that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as `/Content/Project/Placeables/Pickups/`. Game designers can define and tweak pickups in this folder however they please, but they should not touch `Core/Pickups` as they may unintentionally break pickups project-wide.
+Par exemple, si votre projet nécessite des collectables qui peuvent être placés dans un niveau, il devrait exister une classe de base Pickup (collectable en français) dans `Core/Pickups` qui définit le comportement de base pour un collectable. Des collectables spécifiques, tels que la santé ou les munitions, devraient exister dans un dossier tel que `/Content/Project/Placeables/Pickups/`. Les concepteurs de jeux peuvent définir et modifier les collectables dans ce dossier comme bon leur semble, mais ils ne doivent pas toucher à `Core/Pickups` car ils pourraient involontairement casser les collectables de tout le projet.
 
 <a name="2.6"></a>
 <a name="structure-assettypes"></a>
-### 2.6 Do Not Create Folders Called `Assets` or `AssetTypes`
+### 2.6 Ne pas créer de dossiers appelés `Assets` ou `AssetTypes`.
 
 <a name="2.6.1"></a>
-#### 2.6.1 Creating a folder named `Assets` is redundant.
+#### 2.6.1 Créer un dossier nommé `Assets` est redondant.
 
-All assets are assets.
+**Tous les assets sont des assets.**
 
 <a name="2.6.2"></a>
-#### 2.6.2 Creating a folder named `Meshes`, `Textures`, or `Materials` is redundant.
+#### 2.6.2 Créer un dossier nommé `Meshes`, `Textures` ou `Matériaux` est redondant.
 
-All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy to use filtering system the Content Browser provides.
+Tous les noms d'assets sont nommés en tenant compte du type d'asset. Ces dossiers n'offrent que des informations redondantes et l'utilisation de ces dossiers peut facilement être remplacée par le système de filtrage robuste et facile à utiliser que fournit le navigateur de contenu.
 
-Want to view only static mesh in `Environment/Rocks/`? Simply turn on the Static Mesh filter. If all assets are named correctly, they will also be sorted in alphabetical order regardless of prefixes. Want to view both static meshes and skeletal meshes? Simply turn on both filters. This eliminates the need to potentially have to `Control-Click` select two folders in the Content Browser's tree view.
+Vous voulez voir seulement les Static Mesh dans `Environnement/Rocks/` ? Activez simplement le filtre Static Mesh. Si tous les assets sont nommés correctement, ils seront également triés par ordre alphabétique, indépendamment des préfixes. Vous souhaitez afficher à la fois les Static Mesh et les Skeletals Meshes ? Il suffit d'activer les deux filtres. Ceci élimine le besoin de potentiellement devoir sélectionner deux dossiers dans l'arborescence du navigateur de contenu.
 
-> This also extends the full path name of an asset for very little benefit. The `S_` prefix for a static mesh is only two characters, whereas `Meshes/` is seven characters.
+> Cela alonge également le nom du filepath de manière inutile. Le préfixe `S_` pour un Static Mesh n'a que deux caractères, alors que `Meshes/` en a sept.
 
-Not doing this also prevents the inevitability of someone putting a static mesh or a texture in a `Materials` folder.
+Ne pas le faire permet également d'éviter que quelqu'un mette un Static Mesh ou une texture dans un dossier `Materials`.
 
 <a name="2.7"></a>
 <a name="structure-large-sets"></a>
-### 2.7 Very Large Asset Sets Get Their Own Folder Layout
+### 2.7 Les très grands ensembles d'assets obtiennent leur propre disposition de dossiers.
 
-This can be seen as a pseudo-exception to [2.6](#2.6).
+Ceci peut être considéré comme une pseudo-exception à [2.6](#2.6).
 
-There are certain asset types that have a huge volume of related files where each asset has a unique purpose. The two most common are Animation and Audio assets. If you find yourself having 15+ of these assets that belong together, they should be together.
+Il y a certains types d'assets qui possèdent un énorme volume de fichiers liés où chaque asset a un but unique. Les deux plus cas les courants sont les assets d'animation et les assets audio. Si vous avez plus de 15 de ces ressources qui vont ensemble, elles doivent être regroupées.
 
-For example, animations that are shared across multiple characters should lay in `Characters/Common/Animations` and may have sub-folders such as `Locomotion` or `Cinematic`.
+Par exemple, les animations qui sont partagées par plusieurs personnages doivent être placées dans `Characters/Communs/Animations` et peuvent avoir des sous-dossiers tels que `Locomotion` ou `Cinematic`.
 
-> This does not apply to assets like textures and materials. It is common for a `Rocks` folder to have a large amount of textures if there are a large amount of rocks, however these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a [Material Library](#2.8).
+> Ceci ne s'applique pas aux assets tels que les textures et les matériaux. Il est courant qu'un dossier `Rocks` contienne une grande quantité de textures s'il y a une grande quantité de roches, cependant ces textures ne sont généralement liées qu'à quelques roches spécifiques et doivent être nommées de manière appropriée. Même si ces textures font partie d'une [Bibliothèque de Matériaux] (#2.8).
 
 <a name="2.8"></a>
 <a name="structure-material-library"></a>
-### 2.8 `MaterialLibrary`
+### 2.8 `Bibliothèque de Matériaux`
 
-If your project makes use of master materials, layered materials, or any form of reusable materials or textures that do not belong to any subset of assets, these assets should be located in `Content/Project/MaterialLibrary`.
+Si votre projet fait usage de "master materials", de "layered materials" ou de toute forme de matériaux ou de textures réutilisables qui n'appartiennent à aucun sous-ensemble d'assets, ces assets doivent être situés dans `Content/Project/MaterialLibrary`.
 
-This way all 'global' materials have a place to live and are easily located.
+De cette façon, tous les matériaux "globaux" ont un endroit où vivre et sont facilement localisables.
 
-> This also makes it incredibly easy to enforce a 'use material instances only' policy within a project. If all artists and assets should be using material instances, then the only regular material assets that should exist are within this folder. You can easily verify this by searching for base materials in any folder that isn't the `MaterialLibrary`.
+> Cela rend également très facile l'application d'une politique d'utilisation exclusive des instances de matériaux dans un projet. Si tous les assets doivent utiliser des instances de matériaux, seul des instances de matériaux peuvent exister dans ce dossier. Vous pouvez facilement vérifier cela en recherchant les matériaux de base dans n'importe quel dossier qui n'est pas `MaterialLibrary`.
 
-The `MaterialLibrary` doesn't have to consist of purely materials. Shared utility textures, material functions, and other things of this nature should be stored here as well within folders that designate their intended purpose. For example, generic noise textures should be located in `MaterialLibrary/Utility`.
+Le dossier `MaterialLibrary` n'est pas forcément composée uniquement de matériaux. Des textures utilitaires partagées, des "material functions" et d'autres choses de cette nature devraient être stockées ici aussi dans des dossiers qui désignent leur but. Par exemple, les textures de bruit devraient être situées dans `MaterialLibrary/Utility`.
 
-Any testing or debug materials should be within `MaterialLibrary/Debug`. This allows debug materials to be easily stripped from a project before shipping and makes it incredibly apparent if production assets are using them if reference errors are shown.
+Tous les matériaux de test ou de débogage doivent se trouver dans `MaterialLibrary/Debug`. Cela permet de retirer facilement les matériaux de débogage d'un projet avant de l'expédier et de voir clairement si les assets en production les utilisent en regardant si des erreurs de référence sont affichées.
 
 <a name="2.9"></a>
 <a name="structure-no-empty-folders"></a>
-### 2.9 No Empty Folders
+### 2.9 Pas de dossiers vides
 
-There simply shouldn't be any empty folders. They clutter the content browser.
+Il ne devrait pas y avoir de dossiers vides. Ils encombrent le navigateur de contenu.
 
-If you find that the content browser has an empty folder you can't delete, you should perform the following:
-1. Be sure you're using source control.
-1. Immediately run Fix Up Redirectors on your project.
-1. Navigate to the folder on-disk and delete the assets inside.
-1. Close the editor.
-1. Make sure your source control state is in sync (i.e. if using Perforce, run a Reconcile Offline Work on your content directory)
-1. Open the editor. Confirm everything still works as expected. If it doesn't, revert, figure out what went wrong, and try again.
-1. Ensure the folder is now gone.
-1. Submit changes to source control.
+Si vous constatez que le navigateur de contenu contient un dossier vide que vous ne pouvez pas supprimer, procédez comme suit :
+1. Vérifiez que vous utilisez le contrôle des sources.
+1. Exécutez immédiatement "Fix Up Redirectors" sur votre projet.
+1. Naviguez jusqu'au dossier sur le disque et supprimez les assets qui s'y trouvent.
+1. Fermez l'éditeur.
+1. Assurez-vous que l'état de votre contrôle de source est synchronisé (par exemple, si vous utilisez Perforce, exécutez un travail hors ligne de réconciliation sur votre répertoire de contenu).
+1. Ouvrez l'éditeur. Confirmez que tout fonctionne comme prévu. Si ce n'est pas le cas, revenez en arrière, trouvez ce qui n'a pas fonctionné et réessayez.
+1. Assurez-vous que le dossier a disparu.
+1. Soumettre les changements au contrôle de source.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 <a name="3"></a>
 <a name="bp"></a>
 ## 3. Blueprints
 
-This section will focus on Blueprint classes and their internals. When possible, style rules conform to [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
+Cette section se concentre sur les Blueprint et leurs éléments internes. Dans la mesure du possible, les règles de style sont conformes au [Epic's Coding Standard] (https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
-Remember: Blueprinting badly bears blunders, beware! (Phrase by [KorkuVeren](http://github.com/KorkuVeren))
+N'oubliez pas : le Blueprinting supporte mal les gaffes, méfiez-vous ! (Phrase de [KorkuVeren](http://github.com/KorkuVeren))
 
 ### Sections
 
@@ -1222,7 +1221,7 @@ This does not mean every cast node should have its failure handled. In many case
 
 All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 <a name="4"></a>
@@ -1288,7 +1287,7 @@ Regardless of whether an asset is going to be used for collision in a level, all
 
 This is a subjective check on a per-project basis, however all assets should be scaled correctly to their project. Level designers or blueprint authors should not have to tweak the scale of meshes to get them to confirm in the editor. Scaling meshes in the engine should be treated as a scale override, not a scale correction.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 <a name="5"></a>
@@ -1311,7 +1310,7 @@ As mentioned in [00.1 Forbidden Identifiers](#00), spaces and all white space ch
 (Original Contribution by [@dunenkoff](https://github.com/Allar/ue5-style-guide/issues/58))
 
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 <a name="6"></a>
@@ -1381,7 +1380,7 @@ If your project is a gameplay mechanic or other form of system as opposed to an 
 
 For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 <a name="7"></a>
@@ -1428,7 +1427,7 @@ No texture should have a dimension that exceeds 8192 in size, unless you have a 
 
 Every texture has a Texture Group property used for LODing, and this should be set correctly based on its use. For example, all UI textures should belong in the UI texture group.
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 ## Major Contributors
@@ -1444,7 +1443,7 @@ Copyright (c) 2016 Gamemakin LLC
 
 See [LICENSE](/LICENSE)
 
-**[⬆ Back to Top](#table-of-contents)**
+**[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
 ## Amendments
