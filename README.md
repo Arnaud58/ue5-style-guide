@@ -559,7 +559,7 @@ Pour renforcer [2.1.1](#2.1.1), n'utilisez jamais d'espaces. Les espaces peuvent
 <a name="2.1.3"></a>
 #### 2.1.3 Ne jamais utiliser de caractères Unicode et autres symboles
 
-Si l'un des personnages de votre jeu s'appelle 'Zoë', le nom de son dossier doit être `Zoe`. Les caractères Unicode peuvent être pires que les [Espaces] (#2.1.2) pour les outils d'ingénierie et certaines parties de UE4 et 5 ne supportent pas non plus les caractères Unicode dans les chemins.
+Si l'un des personnages de votre jeu s'appelle 'Zoë', le nom de son dossier doit être `Zoe`. Les caractères Unicode peuvent être pires que les [Espaces](#2.1.2) pour les outils d'ingénierie et certaines parties de UE4 et 5 ne supportent pas non plus les caractères Unicode dans les chemins.
 
 Dans le même ordre d'idées, si votre projet présente des [problèmes inexpliqués](https://answers.unrealengine.com/questions/101207/undefined.html) et que le nom d'utilisateur de votre ordinateur comporte un caractère Unicode (c'est-à-dire que votre nom est `Zoë`), tout projet situé dans votre dossier `My Documents` souffrira de ce problème. Souvent, il suffit de déplacer votre projet dans un dossier tel que `D:\Project` pour résoudre ces problèmes mystérieux.
 
@@ -580,7 +580,7 @@ Il y a de multiples raisons pour cette approche.
 
 Souvent dans les guides de style de code, il est écrit qu'il ne faut pas polluer l'espace de nom global et ceci suit le même principe. Lorsque les assets sont autorisés à exister en dehors d'un dossier de projet, il devient souvent beaucoup plus difficile de faire respecter une structure stricte, car les assets qui ne sont pas dans un dossier encouragent le mauvais comportement consistant à ne pas organiser les autres assets.
 
-Chaque assets doit avoir un objectif, sinon il n'a pas sa place dans un projet. Si un assets est un test expérimental et ne doit pas être utilisé par le projet, il doit être placé dans un dossier [`Developer`] (#2.3).
+Chaque assets doit avoir un objectif, sinon il n'a pas sa place dans un projet. Si un assets est un test expérimental et ne doit pas être utilisé par le projet, il doit être placé dans un dossier [`Developer`](#2.3).
 
 <a name="2.2.2"></a>
 #### 2.2.2 Réduire les conflits de migration
@@ -611,7 +611,7 @@ C'est à ce moment-là que si les "master material" des deux projets sont incomp
 
 Une extension de [2.2.2](#2.2.2), si un membre de l'équipe décide d'ajouter du contenu d'un Samples, des fichiers de Templates, ou des assets qu'ils ont achetés sur le marché, il est garanti, tant que le dossier de niveau supérieur de votre projet est nommé de manière unique, que ces nouveaux assets n'interféreront pas avec votre projet.
 
-Vous ne pouvez pas faire confiance au contenu du Marketplace pour se conformer entièrement à la [règle du dossier de premier niveau] (n° 2.2). Il existe de nombreuses ressources dont la majorité du contenu se trouve dans un dossier de premier niveau, mais qui contiennent également des échantillons de contenu Epic éventuellement modifiés ainsi que des fichiers de niveau polluant le dossier global `Content`.
+Vous ne pouvez pas faire confiance au contenu du Marketplace pour se conformer entièrement à la [règle du dossier de premier niveau](n° 2.2). Il existe de nombreuses ressources dont la majorité du contenu se trouve dans un dossier de premier niveau, mais qui contiennent également des échantillons de contenu Epic éventuellement modifiés ainsi que des fichiers de niveau polluant le dossier global `Content`.
 
 En adhérant à [2.2](#2.2), le pire conflit du Marketplace que vous pouvez avoir est si deux assets utilisent le même Samples d'Epic. Si toutes vos ressources se trouvent dans un dossier spécifique au projet, y compris le contenu des Samples que vous avez déplacé dans votre dossier, votre projet ne sera jamais inquiété par les problèmes lié à l'importation d'assets.
 
@@ -681,7 +681,7 @@ Il y a certains types d'assets qui possèdent un énorme volume de fichiers lié
 
 Par exemple, les animations qui sont partagées par plusieurs personnages doivent être placées dans `Characters/Communs/Animations` et peuvent avoir des sous-dossiers tels que `Locomotion` ou `Cinematic`.
 
-> Ceci ne s'applique pas aux assets tels que les textures et les matériaux. Il est courant qu'un dossier `Rocks` contienne une grande quantité de textures s'il y a une grande quantité de roches, cependant ces textures ne sont généralement liées qu'à quelques roches spécifiques et doivent être nommées de manière appropriée. Même si ces textures font partie d'une [Bibliothèque de Matériaux] (#2.8).
+> Ceci ne s'applique pas aux assets tels que les textures et les matériaux. Il est courant qu'un dossier `Rocks` contienne une grande quantité de textures s'il y a une grande quantité de roches, cependant ces textures ne sont généralement liées qu'à quelques roches spécifiques et doivent être nommées de manière appropriée. Même si ces textures font partie d'une [Bibliothèque de Matériaux](#2.8).
 
 <a name="2.8"></a>
 <a name="structure-material-library"></a>
@@ -720,7 +720,7 @@ Si vous constatez que le navigateur de contenu contient un dossier vide que vous
 <a name="bp"></a>
 ## 3. Blueprints
 
-Cette section se concentre sur les Blueprint et leurs éléments internes. Dans la mesure du possible, les règles de style sont conformes au [Epic's Coding Standard] (https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
+Cette section se concentre sur les Blueprint et leurs éléments internes. Dans la mesure du possible, les règles de style sont conformes au [Epic's Coding Standard](https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard).
 
 N'oubliez pas : le Blueprinting supporte mal les gaffes, méfiez-vous ! (Phrase de [KorkuVeren](http://github.com/KorkuVeren))
 
