@@ -736,54 +736,54 @@ N'oubliez pas : le Blueprinting supporte mal les gaffes, méfiez-vous ! (Phrase 
 
 <a name="3.1"></a>
 <a name="bp-compiling"></a>
-### 3.1 Compiling
+### 3.1 Compilation
 
-All blueprints should compile with zero warnings and zero errors. You should fix blueprint warnings and errors immediately as they can quickly cascade into very scary unexpected behavior.
+Tous les blueprints doivent être compilés sans aucun avertissement ni aucune erreur. Vous devez corriger immédiatement les avertissements et les erreurs des blueprints car ils peuvent rapidement se transformer en un comportement inattendu très effrayant.
 
-Do *not* submit broken blueprints to source control. If you must store them on source control, shelve them instead.
+Ne soumettez *pas* les blueprints cassés au contrôle de source. Si vous devez les stocker dans le contrôle de source, mettez-les plutôt en attente.
 
-Broken blueprints can cause problems that manifest in other ways, such as broken references, unexpected behavior, cooking failures, and frequent unneeded recompilation. A broken blueprint has the power to break your entire game.
+Les blueprints cassés peuvent causer des problèmes qui se manifestent d'autres manières, comme des références cassées, un comportement inattendu, des échecs de compilation et des recompilations fréquentes et inutiles. Un blueprint cassé a le pouvoir de casser votre jeu entier.
 
 <a name="3.2"></a>
 <a name="bp-vars"></a>
 ### 3.2 Variables
 
-The words `variable` and `property` may be used interchangeably.
+Les mots `variable` et `propriété` peuvent être utilisés de manière interchangeable.
 
 #### Sections
 
-> 3.2.1 [Naming](#bp-vars)
+> 3.2.1 [Nommage](#bp-vars)
 
 > 3.2.2 [Editable](#bp-vars-editable)
 
-> 3.2.3 [Categories](#bp-vars-categories)
+> 3.2.3 [Catégories](#bp-vars-categories)
 
-> 3.2.4 [Access](#bp-vars-access)
+> 3.2.4 [Accès](#bp-vars-access)
 
-> 3.2.5 [Advanced](#bp-vars-advanced)
+> 3.2.5 [Avancé](#bp-vars-advanced)
 
-> 3.2.6 [Transient](#bp-vars-transient)
+> 3.2.6 [Transitoire](#bp-vars-transitoire)
 
 > 3.2.7 [Config](#bp-vars-config)
 
 <a name="3.2.1"></a>
 <a name="bp-var-naming"></a>
-#### 3.2.1 Naming
+#### 3.2.1 Nommage
 
 <a name="3.2.1.1"></a>
 <a name="bp-var-naming-nouns"></a>
-##### 3.2.1.1 Nouns
+##### 3.2.1.1 Noms
 
-All non-boolean variable names must be clear, unambiguous, and descriptive nouns.
+Tous les noms de variables non booléennes doivent être des substantifs clairs, non ambigus et descriptifs.
 
 <a name="3.2.1.2"></a>
 <a name="bp-var-naming-case"></a>
 ##### 3.2.1.2 PascalCase
 
-All non-boolean variables should be in the form of [PascalCase](#terms-cases).
+Toutes les variables non booléennes doivent être sous la forme [PascalCase](#terms-cases).
 
 <a name="3.2.1.2e"></a>
-###### 3.2.1.2e Examples:
+###### 3.2.1.2e Exemples:
 
 * `Score`
 * `Kills`
@@ -794,48 +794,48 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 
 <a name="3.2.1.3"></a>
 <a name="bp-var-bool-prefix"></a>
-##### 3.2.1.3 Boolean `b` Prefix
+##### 3.2.1.3 Préfixe `b`
 
-All booleans should be named in PascalCase but prefixed with a lowercase `b`.
+Tous les booléens doivent être nommés en PascalCase mais préfixés par un `b` minuscule.
 
-Example: Use `bDead` and `bEvil`, **not** `Dead` and `Evil`.
+Exemple : Utilisez `bDead` et `bEvil`, **et non** `Dead` et `Evil`.
 
-UE4 Blueprint editors know not to include the `b` in user-friendly displays of the variable.
+Les éditeurs de Blueprint de UE4 savent qu'il ne faut pas inclure le `b` dans les affichages conviviaux de la variable.
 
 <a name="3.2.1.4"></a>
 <a name="bp-var-bool-names"></a>
-##### 3.2.1.4 Boolean Names
+##### 3.2.1.4 Noms booléens
 
 <a name="3.2.1.4.1"></a>
-###### 3.2.1.4.1 General And Independent State Information
+###### 3.2.1.4.1 Informations générales et indépendantes des états
 
-All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as `Is`. This is reserved for functions.
+Tous les booléens doivent être nommés comme des adjectifs descriptifs lorsque cela est possible s'ils représentent des informations générales. N'incluez pas les mots qui expriment la variable comme une question, tels que `Is`. Ceci est réservé aux fonctions.
 
-Example: Use `bDead` and `bHostile` **not** `bIsDead` and `bIsHostile`.
+Exemple : Utilisez `bDead` et `bHostile` **et non** `bIsDead` et `bIsHostile`.
 
-Try to not use verbs such as `bRunning`. Verbs tend to lead to complex states.
+Essayez de ne pas utiliser de verbes tels que `bRunning`. Les verbes ont tendance à conduire à des états complexes.
 
 <a name="3.2.1.4.2"></a>
-###### 3.2.1.4.2 Complex States
+###### 3.2.1.4.2 États complexes
 
-Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.
+Ne pas utiliser de booléens pour représenter des états complexes et/ou dépendants. Cela rend compliqué l'ajout et la suppression d'états et n'est pas facilement lisible. Utilisez plutôt une énumération dans ce cas là.
 
-Example: When defining a weapon, do **not** use `bReloading` and `bEquipping` if a weapon can't be both reloading and equipping. Define an enumeration named `EWeaponState` and use a variable with this type named `WeaponState` instead. This makes it far easier to add new states to weapons.
+Exemple : Lors de la définition d'une arme, ne **pas** utiliser `bReloading` et `bEquipping` si une arme ne peut pas être à la fois rechargée et équipée. Définissez une énumération nommée `EWeaponState` et utilisez plutôt une variable de ce type nommée `WeaponState`. Cela rend beaucoup plus facile l'ajout de nouveaux états aux armes.
 
-Example: Do **not** use `bRunning` if you also need `bWalking` or `bSprinting`. This should be defined as an enumeration with clearly defined state names.
+Exemple : Ne **pas** utiliser `bRunning` si vous avez aussi besoin de `bWalking` ou `bSprinting`. Cela devrait être défini comme une énumération avec des noms d'états clairement définis.
 
 <a name="3.2.1.5"></a>
 <a name="bp-vars-naming-context"></a>
-##### 3.2.1.5 Considered Context
+##### 3.2.1.5 Contexte considéré
 
-All variable names must not be redundant with their context as all variable references in Blueprint will always have context.
+Tous les noms de variables ne doivent pas être redondants avec leur contexte car toutes les références de variables dans Blueprint auront toujours un contexte.
 
 <a name="3.2.1.5e"></a>
-###### 3.2.1.5e Examples:
+###### 3.2.1.5e Exemples:
 
-Consider a Blueprint called `BP_PlayerCharacter`.
+Considérons un Blueprint appelé `BP_PlayerCharacter`.
 
-**Bad**
+**Mauvais**
 
 * `PlayerScore`
 * `PlayerKills`
@@ -844,9 +844,9 @@ Consider a Blueprint called `BP_PlayerCharacter`.
 * `CharacterSkills`
 * `ChosenCharacterSkin`
 
-All of these variables are named redundantly. It is implied that the variable is representative of the `BP_PlayerCharacter` it belongs to because it is `BP_PlayerCharacter` that is defining these variables.
+Toutes ces variables sont nommées de manière redondante. Il est sous-entendu que la variable est représentative du `BP_PlayerCharacter` auquel elle appartient car c'est `BP_PlayerCharacter` qui définit ces variables.
 
-**Good**
+**Bien**
 
 * `Score`
 * `Kills`
@@ -857,50 +857,50 @@ All of these variables are named redundantly. It is implied that the variable is
 
 <a name="3.2.1.6"></a>
 <a name="bp-vars-naming-atomic"></a>
-##### 3.2.1.6 Do _Not_ Include Atomic Type Names
+##### 3.2.1.6 Ne _pas_ inclure les noms de types atomiques
 
-Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.
+Les variables atomiques ou primitives sont des variables qui représentent des données dans leur forme la plus simple, comme les booléens, les entiers, les flottants et les énumérations.
 
-Strings and vectors are considered atomic in terms of style when working with Blueprints, however they are technically not atomic.
+Les chaînes de caractères et les vecteurs sont considérés comme atomiques en termes de style lorsqu'on travaille avec Blueprints, mais ils ne le sont pas techniquement.
 
-> While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.
+> Alors que les vecteurs sont composés de trois flottants, les vecteurs peuvent souvent être manipulés comme un tout, de même que les "Rotators".
 
-> Do _not_ consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is `String`, not `Text`.
+> Ne considérez _pas_ les variables Text comme atomiques, elles cachent secrètement la fonctionnalité de localisation. Le type atomique d'une chaîne de caractères est `String`, pas `Text`.
 
-Atomic variables should not have their type name in their name.
+Les variables atomiques ne doivent pas avoir leur nom de type dans leur nom.
 
-Example: Use `Score`, `Kills`, and `Description` **not** `ScoreFloat`, `FloatKills`, `DescriptionString`.
+Exemple : Utilisez `Score`, `Kills`, et `Description` **et non** `ScoreFloat`, `FloatKills`, `DescriptionString`.
 
-The only exception to this rule is when a variable represents 'a number of' something to be counted _and_ when using a name without a variable type is not easy to read.
+La seule exception à cette règle est lorsqu'une variable représente "un nombre de" quelque chose à compter _et_ lorsque l'utilisation d'un nom sans type de variable n'est pas facile à lire.
 
-Example: A fence generator needs to generate X number of posts. Store X in `NumPosts` or `PostsCount` instead of `Posts` as `Posts` may potentially read as an Array of a variable type named `Post`.
+Exemple : Un générateur de clôture doit générer un nombre X de poteaux. Enregistrez X dans `NumPosts` ou `PostsCount` au lieu de `Posts` car `Posts` peut potentiellement être lu comme un tableau d'un type de variable nommé `Post`.
 
 <a name="3.2.1.7"></a>
 <a name="bp-vars-naming-complex"></a>
-##### 3.2.1.7 Do Include Non-Atomic Type Names
+##### 3.2.1.7 Ne pas inclure les noms de types non atomiques
 
-Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as `Text` and `Name` all qualify under this rule.
+Les variables non atomiques ou complexes sont des variables qui représentent des données comme une collection de variables atomiques. Les structures, les classes, les interfaces et les primitives au comportement caché telles que `Text` et `Name` répondent toutes à cette règle.
 
-> While an Array of an atomic variable type is a list of variables, Arrays do not change the 'atomicness' of a variable type.
+> Alors qu'un tableau d'un type de variable atomique est une liste de variables, les tableaux ne modifient pas le caractère atomique d'un type de variable.
 
-These variables should include their type name while still considering their context.
+Ces variables doivent inclure leur nom de type tout en tenant compte de leur contexte.
 
-If a class owns an instance of a complex variable, i.e. if a `BP_PlayerCharacter` owns a `BP_Hat`, it should be stored as the variable type as without any name modifications.
+Si une classe possède une instance d'une variable complexe, par exemple si un `BP_PlayerCharacter` possède un `BP_Hat`, elle doit être stockée comme type de variable sans modification de nom.
 
-Example: Use `Hat`, `Flag`, and `Ability` **not** `MyHat`, `MyFlag`, and `PlayerAbility`.
+Exemple : Utilisez `Hat`, `Flag`, et `Ability` **et non** `MyHat`, `MyFlag`, et `PlayerAbility`.
 
-If a class does not own the value a complex variable represents, you should use a noun along with the variable type.
+Si une classe ne possède pas la variable qui est dans une variable complexe, vous devez compléter le nom avec le type de variable.
 
-Example: If a `BP_Turret` has the ability to target a `BP_PlayerCharacter`, it should store its target as `TargetPlayer` as when in the context of `BP_Turret` it should be clear that it is a reference to another complex variable type that it does not own.
+Exemple : Si une `BP_Turret` a la capacité de cibler un `BP_PlayerCharacter`, elle devrait stocker sa variable en tant que `TargetPlayer` car dans le contexte de `BP_Turret`, il devrait être clair qu'il s'agit d'une référence à un autre type de variable complexe qu'elle ne possède pas.
 
 
 <a name="3.2.1.8"></a>
 <a name="bp-vars-naming-arrays"></a>
-##### 3.2.1.8 Arrays
+##### 3.2.1.8 Tableaux
 
-Arrays follow the same naming rules as above, but should be named as a plural noun.
+Les tableaux suivent les mêmes règles de dénomination que ci-dessus, mais doivent être nommés comme un nom pluriel et être préfixé de `the`
 
-Example: Use `Targets`, `Hats`, and `EnemyPlayers`, **not** `TargetList`, `HatArray`, `EnemyPlayerArray`.
+Exemple : Utilisez `theTargets`, `theHats`, et `theEnemyPlayers`, **et non** `TargetList`, `HatArray`, `EnemyPlayerArray`.
 
 
 <a name="3.2.2"></a>
