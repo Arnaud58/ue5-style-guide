@@ -1194,7 +1194,7 @@ Bad Example: The tops of the nodes are aligned creating a wiggly white exec line
 ![Bad](https://github.com/Arnaud58/ue5-style-guide/blob/main/images/bp-graphs-align-wires-bad.png "Wiggly")
 
 Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
-![Acceptable](https://github.com/Arnaud58/ue5-style-guide/blob/main/images/bp-graphs-align-wires-good.png "Acceptable")
+![Acceptable](https://github.com/Arnaud58/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png "Acceptable")
 
 <a name="3.4.3"></a>
 <a name="bp-graphs-exec-first-class"></a>
