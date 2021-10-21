@@ -762,7 +762,7 @@ Les mots `variable` et `propriété` peuvent être utilisés de manière interch
 
 > 3.2.5 [Avancé](#bp-vars-advanced)
 
-> 3.2.6 [Transitoire](#bp-vars-transitoire)
+> 3.2.6 [Temporaires](#bp-vars-transitoire)
 
 > 3.2.7 [Config](#bp-vars-config)
 
