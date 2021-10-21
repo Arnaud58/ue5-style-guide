@@ -1431,24 +1431,29 @@ Every texture has a Texture Group property used for LODing, and this should be s
 **[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
-## Major Contributors
+## Principaux contributeurs
 
 * [Michael Allar](http://allarsblog.com): [GitHub](https://github.com/Allar), [Twitter](https://twitter.com/michaelallar)
 * [CosmoMyzrailGorynych](https://github.com/CosmoMyzrailGorynych)
 * [billymcguffin](https://github.com/billymcguffin)
 * [akenatsu](https://github.com/akenatsu)
+	
+## Traducteurs fr
+	
+* [Arnaud Rougetet](https://github.com/Arnaud58)
+* [Emeline59](https://github.com/Emeline59)
 
 ## License
 
 Copyright (c) 2016 Gamemakin LLC
 
-See [LICENSE](/LICENSE)
+Voir [LICENSE](/LICENSE)
 
 **[⬆ Retourner à la table des matières](#table-of-contents)**
 
 
-## Amendments
+## Amendements
 
-We encourage you to fork this guide and change the rules to fit your team's style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
+Nous vous recommandons de forker ce guide et de modifier les règles pour les adapter au guide de style de votre équipe. Vous pouvez suggérer des modifications au guide de style ci-dessous. Cela permettra de s'assurer qu'il n'y a pas de conflits lors de la fusion, et que le guide de style est mis à jour régulièrement.
 
 # };
