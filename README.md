@@ -846,7 +846,7 @@ Considérons un Blueprint appelé `BP_PlayerCharacter`.
 
 Toutes ces variables sont nommées de manière redondante. Il est sous-entendu que la variable est représentative du `BP_PlayerCharacter` auquel elle appartient car c'est `BP_PlayerCharacter` qui définit ces variables.
 
-**Bien**
+**Bon**
 
 * `Score`
 * `Kills`
@@ -905,45 +905,46 @@ Exemple : Utilisez `theTargets`, `theHats`, et `theEnemyPlayers`, **et non** `Ta
 
 <a name="3.2.2"></a>
 <a name="bp-vars-editable"></a>
-#### 3.2.2 Editable Variables
+#### 3.2.2 Variables modifiables
 
-All variables that are safe to change the value of in order to configure behavior of a blueprint should be marked as `Editable`.
+Toutes les variables dont on peut changer la valeur en toute sécurité afin de configurer le comportement d'un blueprint doivent être marquées comme `Editable`.
 
-Conversely, all variables that are not safe to change or should not be exposed to designers should _not_ be marked as editable, unless for engineering reasons the variable must be marked as `Expose On Spawn`.
+Inversement, toutes les variables que l'on est psa sûres de changer ou qui ne doivent pas être exposées aux concepteurs ne doivent pas être marquées comme modifiables, à moins que pour des raisons techniques, la variable doive être marquée comme `Expose On Spawn`.
 
-Do not arbitrarily mark variables as `Editable`.
+Ne marquez pas arbitrairement les variables comme `Editable`.
 
 <a name="3.2.2.1"></a>
 <a name="bp-vars-editable-tooltips"></a>
-##### 3.2.2.1 Tooltips
+##### 3.2.2.1 Info-bulles
 
-All `Editable` variables, including those marked editable just so they can be marked as `Expose On Spawn`, should have a description in their `Tooltip` fields that explains how changing this value affects the behavior of the blueprint.
+Toutes les variables `Editable`, y compris celles marquées editable juste pour qu'elles puissent être marquées comme `Expose On Spawn`, devraient avoir une description dans leurs champs `Tooltip` qui explique comment le changement de cette valeur affecte le comportement du blueprint.
 
 <a name="3.2.2.2"></a>
 <a name="bp-vars-editable-ranges"></a>
-##### 3.2.2.2 Slider And Value Ranges
+<!-- https://forums.unrealengine.com/showthread.php?65227-Float-Variable-With-Slider-Range-From-C -->
+##### 3.2.2.2 Curseur et plages de valeurs
 
-All `Editable` variables should make use of slider and value ranges if there is ever a value that a variable should _not_ be set to.
+Toutes les variables `Editable` devraient utiliser un curseur et une plage de valeurs s'il y a une valeur qui _ne devrait pas_ être définie pour cette variable.
 
-Example: A blueprint that generates fence posts might have an editable variable named `PostsCount` and a value of -1 would not make any sense. Use the range fields to mark 0 as a minimum.
+Exemple : Si un blueprint qui génère des poteaux de clôture a une variable éditable `PostsCount`, cela n'aurait pas de sens de pouvoir lui donner une valeur de -1. Utilisez le champ plage pour définir 0 comme valeur minimale.
 
-If an editable variable is used in a Construction Script, it should have a reasonable Slider Range defined so that someone can not accidentally assign it a large value that could crash the editor.
+Si la variable modifiable est utilisée dans un script de construction, il convient de définir une plage de curseurs appropriée afin d'éviter de définir accidentellement une valeur si grande qu'elle fait planter l'éditeur.
 
-A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered 'dangerous' but still valid.
+Une plage de valeurs ne doit être définie que si les limites de la valeur sont connues. La plage de valeurs du curseur empêche la saisie accidentelle d'un trop grand nombre de valeurs, mais une plage de valeurs non définies peut être utilisée pour spécifier des valeurs en dehors de la plage du curseur. Cette valeur est considérée comme "dangereuse" mais elle est toujours valable.
 
 <a name="3.2.3"></a>
 <a name="bp-vars-categories"></a>
-#### 3.2.3 Categories
+#### 3.2.3 Catégorie
 
-If a class has only a small number of variables, categories are not required.
+Si une classe comporte un petit nombre de variables, l'utilisation de catégories n'est pas obligatoire.
 
-If a class has a moderate amount of variables (5-10), all `Editable` variables should have a non-default category assigned. A common category is `Config`.
+Si une classe a un nombre modéré de variables (5-10), toutes les variables `Editable` se verront attribuer une catégorie autre que celle par défaut. Une catégorie commune à assigner est `Config`.
 
-If a class has a large amount of variables, all `Editable` variables should be categorized into sub-categories using the category `Config` as the base category. Non-editable variables should be categorized into descriptive categories describing their usage. 
+Si une classe a un grand nombre de variables, toutes les variables `éditables` doivent être classées en sous-catégories en utilisant la catégorie `Config` comme catégorie de base. Les variables non modifiables doivent être classées dans une catégorie descriptive décrivant leur utilisation.
 
-> You can define sub-categories by using the pipe character `|`, i.e. `Config | Animations`.
+> Les sous-catégories peuvent être définies en utilisant le caractère pipe `|`. c'est-à-dire `Config | Animations`.
 
-Example: A weapon class set of variables might be organized as:
+Exemple : Une configuration variable pour une classe d'arme peut être structurée comme suit :
 
 	|-- Config
 	|	|-- Animations
@@ -957,41 +958,41 @@ Example: A weapon class set of variables might be organized as:
 
 <a name="3.2.4"></a>
 <a name="bp-vars-access"></a>
-#### 3.2.4 Variable Access Level
+#### 3.2.4  Niveau d'accès variable 
 
-In C++, variables have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.
+En C++, les variables ont le concept de niveaux d'accès. Public signifie que du code extérieur à la classe peut accéder à la variable. Protégé signifie que seule la classe et toutes les classes filles peuvent accéder à cette variable en interne. Privé signifie que seule cette classe et aucune classe enfant n'a accès à cette variable.
 
-Blueprints do not have a defined concept of protected access currently.
+Les Blueprints ne définissent pas actuellement le concept de contrôle de l'accès à Protected.
 
-Treat `Editable` variables as public variables. Treat non-editable variables as protected variables.
+Les variables `Editable` sont traitées comme des variables publiques. Traiter les variables non éditables comme des variables protégées.
 
 <a name="3.2.4.1"></a>
 <a name="bp-vars-access-private"></a>
-##### 3.2.4.1 Private Variables
+##### 3.2.4.1 Variables privées
 
-Unless it is known that a variable should only be accessed within the class it is defined and never a child class, do not mark variables as private. Until variables are able to be marked `protected`, reserve private for when you absolutely know you want to restrict child class usage.
+Ne marquez pas une variable comme privée à moins qu'elle ne soit utilisée uniquement au sein de la classe dans laquelle elle est définie et qu'elle ne soit pas utilisé dans une classe enfant. Gardez les variables privées jusqu'à ce qu'elles soient marquées `protégées`, ceci est à faire quand vous savez absolument que vous voulez restreindre leur utilisation aux classes enfants.
 
 <a name="3.2.5"></a>
 <a name="bp-vars-advanced"></a>
-#### 3.2.5 Advanced Display
+#### 3.2.5 Affichage avancé
 
-If a variable should be editable but often untouched, mark it as `Advanced Display`. This makes the variable hidden unless the advanced display arrow is clicked.
+Si une variable est `Editable`, mais que vous ne changez pas souvent sa valeur, vous devriez cocher la case `Advanced Display`. La variable sera ainsi masquée, sauf si vous cliquez sur la flèche d'affichage étendu.
 
-To find the `Advanced Display` option, it is listed as an advanced displayed variable in the variable details list.
+Pour rechercher l'option `Advanced Display`, elle apparaîtra dans la liste détaillée des variables en tant que `Advanced Display`.
 
 <a name="3.2.6"></a>
 <a name="bp-vars-transient"></a>
-#### 3.2.6 Transient Variables
+#### 3.2.6 Variables temporaires
 
-Transient variables are variables that do not need to have their value saved and loaded and have an initial value of zero or null. This is useful for references to other objects and actors who's value isn't known until run-time. This prevents the editor from ever saving a reference to it, and speeds up saving and loading of the blueprint class.
-
-Because of this, all transient variables should always be initialized as zero or null. To do otherwise would result in hard to debug errors.
+Une variable temporaire est une variable qui a une valeur initiale à zéro ou null, sans qu'il soit nécessaire de sauvegarder et de charger la valeur. Ceci est utile pour les références à d'autres objets ou acteurs dont les valeurs ne sont pas connues avant l'exécution. Cela empêche l'éditeur d'enregistrer cette référence et accélère l'enregistrement et le chargement des classes Blueprint.
+	
+Pour cette raison, toutes les variables temporaires doivent toujours être initialisées à zéro ou à une valeur nulle. Sinon, il sera difficile de déboguer les erreurs.
 
 <a name="3.2.7"></a>
 <a name="bp-vars-config"></a>
-#### 3.2.8 Config Variables
+#### 3.2.7 Variables de configuration
 
-Do not use the `Config Variable` flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as `Advanced Advanced Display` variables.
+L'indicateur `Config Variable` ne doit pas être utilisé. Celà rend difficile pour le concepteur de contrôler le comportement du blueprint. Les variables de configuration ne doivent être utilisées en C++ que pour les variables qui sont rarement modifiées. Considérez-les comme des variables d'`affichage très très avancé`.
 
 <a name="3.3"></a>
 <a name="bp-functions"></a>
