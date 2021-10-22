@@ -31,7 +31,8 @@ Si vous avez créé un fork ou une traduction notable qui ne peut **pas** faire 
 * [Traduction coréenne](https://github.com/ymkim50/ue4-style-guide/blob/master/README_Kor.md) par ymkim50
 * [Traduction en russe](https://github.com/CosmoMyzrailGorynych/ue4-style-guide-rus/blob/master/README.md) par CosmoMyzrailGorynych
 * [Traduction japonaise](https://github.com/akenatsu/ue4-style-guide/blob/master/README.jp.md) par akenatsu
-* [Traduction en chinois](https://github.com/skylens-inc/ue4-style-guide/blob/master/README.md) par Beijing Skylens Tech.
+* [Traduction en chinois](https://github.com/skylens-inc/ue4-style-guide/blob/master/README.md) par Beijing Skylens Tech
+* [Traduction Portugais Brésilien](https://github.com/danlvr/ue5-style-guide/blob/main/README_PTBR.md) par danlvr
 * [Traduction française](https://github.com/Arnaud58/ue5-style-guide/blob/main/README.md) par Arnaud58
 
 ## Terminologie importante
