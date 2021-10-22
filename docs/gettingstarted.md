@@ -1,41 +1,41 @@
-# Getting Started
+## Comment démarrer
 
-## Requirements
+## Exigences
 
-* You will need a launcher version of Unreal Engine 4 version 4.24 or later.
-* You must purchase (for free) the Linter plugin on the Unreal Engine Marketplace.
+* Vous aurez besoin d'une version de lancement d'Unreal Engine 4 version 4.24 ou plus.
+* Vous devez acheter (gratuitement) le plugin Linter sur le Marché d'Unreal Engine.
 
-@TODO: Add link here once I have it
+@TODO : Ajouter le lien ici une fois que je l'aurai.
 
-## Installing From The Launcher
+## Installation à partir du lanceur
 
-1. Close all your instances of Unreal Engine 4
-2. Using the Epic Launcher find Linter in your Vault
-3. Use the Install to Engine button to install Linter to your Engine
+1. Fermez toutes vos instances d'Unreal Engine 4.
+2. En utilisant le lanceur Epic, trouvez Linter dans votre Vault.
+3. Utilisez le bouton Installer dans le moteur pour installer Linter dans votre moteur.
 
 ![](img/LinterLauncher.png)
 
-## Enabling Linter
+## Activation de Linter
 
-1. Open your project
-2. Open the Plugins window by clicking Edit on the main toolbar and navigating to Plugins
-3. Search for Linter
-4. Enable the Linter plugin by ensuring the Enabled checkbox is checked
-5. Restart the editor
+1. Ouvrez votre projet
+2. Ouvrez la fenêtre des plugins en cliquant sur Editer dans la barre d'outils principale et en naviguant vers les plugins.
+3. Recherchez Linter
+4. Activez le plugin Linter en vous assurant que la case 'Enabled' est cochée.
+5. Redémarrer l'éditeur
 
-## Using Linter
+## Utilisation de Linter
 
-Once installed there isn't much in the way of using Linter. Operating Linter is pretty straightforward:
+Une fois installé, il n'y a pas grand chose à faire pour utiliser Linter. L'utilisation de Linter est assez simple :
 
-1. Right-click on a content folder in your project
-2. Click "Scan with Linter"
-3. Select the ruleset you would like to use for linting
-4. Wait for the results
+1. Cliquez avec le bouton droit de la souris sur un dossier de contenu dans votre projet.
+2. Cliquez sur "Scanner avec Linter".
+3. Sélectionnez le jeu de règles que vous souhaitez utiliser pour le linting.
+4. Attendez les résultats
 
 ![](img/ScanWithLinter.png)
 
-## The Lint Report
+## Le rapport de lint
 
-Once a project is scanned, you will be presented with a Lint Report that provides an overall summary of the state of your project.
+Une fois le projet analysé, un rapport de Lint vous est présenté qui fournit un résumé global de l'état de votre projet.
 
 ![](img/LintReport.png)
