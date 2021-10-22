@@ -1,19 +1,19 @@
-# UE4 Marketplace TRC + Style Guide and Linter Compatibility
+# UE4 Marketplace TRC + Guide de Style et Compatibilité Linter
 
-Epic's Marketplace TRC can be found here: https://forums.unrealengine.com/showthread.php?151905-Marketplace-Technical-Review-Checklist
+La TRC (Technical Review Checklist) du Marketplace d'Epic peut être trouvée ici : https://forums.unrealengine.com/showthread.php?151905-Marketplace-Technical-Review-Checklist
 
-This document shows its compatibility with the style guide on this repo, as well as the UE4 Marketplace Plugin Linter.
+Ce document montre sa compatibilité avec le guide de style de ce repo, ainsi qu'avec le "UE4 Marketplace Plugin Linter".
 
-## Icon Guide:
+## Guide des icônes :
 
-* :white_check_mark: - Compatible
-* :green_heart: - Linter Supported (Can currently be checked through automation)
-* :x: - Not Compatible
-* :o: - See note
+* :white_check_mark : - Compatible
+* :green_heart : - Supporté par Linter (Peut actuellement être vérifié par automatisation)
+* :x : - Non compatible
+* :o : - Voir note
 
 ## General
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 4     | Submission is in Unreal Engine 4                                           | :white_check_mark::green_heart: If you can run Linter, you pass.                             |
 | 5     | Project contains correct files and folders                                 | :white_check_mark: If you can run Linter, and distribute correctly, you pass.   |
@@ -29,7 +29,7 @@ This document shows its compatibility with the style guide on this repo, as well
 
 ## Maps
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 16    | Pack contains Maps                                                         | :white_check_mark::green_heart: Linter will check for map issues if maps exist. |
 | 17    | Pack contains Overview Map                                                 | :white_check_mark: [See #6.4.1](http://ue4.style#6.4.1)                         |
@@ -44,7 +44,7 @@ This document shows its compatibility with the style guide on this repo, as well
 
 ## Quality
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 27    | Assets are free of visibly obvious discrepancies                           | :o: Currently a subjective check.                                               |
 | 28    | Assets function without detriment to performance                           | :o: Currently a subjective check.                                               |
@@ -54,9 +54,9 @@ This document shows its compatibility with the style guide on this repo, as well
 
 ## Legal
 
-Gamemakin LLC and its product Linter makes no effort to check for legal compliance for your project on your behalf. We are not lawyers and do not have that capability and can not offer legal advice. That said, we vehemently recommend [not breaking the law](http://ue4.style#0.5).
+Gamemakin LLC et son produit Linter ne font aucun effort pour vérifier la conformité légale de votre projet en votre nom. Nous ne sommes pas des avocats, nous n'avons pas cette capacité et nous ne pouvons pas offrir de conseils juridiques. Cela dit, nous vous recommandons vivement de [ne pas enfreindre la loi](http://ue4.style#0.5).
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 33    | Seller owns rights to distribute content                                   | :white_check_mark: See section note. [See #0.5](http://ue4.style#0.5)           |
 | 34    | Does not contain copyrighted or trademarked content                        | :white_check_mark: See section note. [See #0.5](http://ue4.style#0.5)           |
@@ -69,7 +69,7 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 ## Textures
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 42    | Pack contains Textures                                                     | :white_check_mark::green_heart:                                                 |
 | 43    | Textures are set to Power of 2                                             | :white_check_mark: [See #7.1](http://ue4.style#7.1)                             |
@@ -79,7 +79,7 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 ## Materials
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 48    | Pack contains Materials                                                    | :white_check_mark::green_heart:                                                 |
 | 49    | All Materials are set up correctly and are optimized for intended purpose  | :o: Currently a subjective check.                                               |
@@ -89,7 +89,7 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 ## Meshes
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 54    | Pack contains Meshes                                                       | :white_check_mark::green_heart:                                                 |
 | 55    | LOD's are set up correctly                                                 | :white_check_mark: [See #4.2](http://ue4.style#4.2)                             |
@@ -105,7 +105,7 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 ## Blueprints
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 66    | Pack contains Blueprints                                                   | :white_check_mark::green_heart:                                                 |
 | 67    | Blueprints use comments appropriately                                      | :white_check_mark: [See #3.4.4](http://ue4.style#3.4.4)                         |
@@ -119,7 +119,7 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 ## Audio
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 76    | Pack contains Audio                                                        | :white_check_mark::green_heart:                                                 |
 | 77    | All wav files have sound cues attached                                     | :o: This reads like a 1:1 relationship between SoundWaves and SoundCues, when its very common to have one SoundCue reference many SoundWaves. Not sure of Marketplace Team's intention. |
@@ -129,11 +129,11 @@ Gamemakin LLC and its product Linter makes no effort to check for legal complian
 
 ## Characters
 
-Gamemakin LLC's Style Guide does not have character specfics as characters are quite diverse. Epic forces characters to adhere to the Epic Skeleton for marketplace assets even when a character should have a different skeleton due to things like having facial animations, having articulation and movements not supported by Epic's skeleton, having wildly different proportions to the point where using even re-targeted Epic animations don't make sense, and other factors.
+Le guide de style de Gamemakin LLC n'a pas de spécificités pour les personnages car ceux-ci sont très divers. Epic oblige les Characters à adhérer au squelette Epic pour les assets du marché, même lorsqu'un personnage devrait avoir un squelette différent en raison de choses comme avoir des animations faciales, avoir des articulations et des mouvements qui ne sont pas pris en charge par le squelette Epic, avoir des proportions très différentes au point que l'utilisation même des animations Epic re-ciblées n'a pas de sens, et d'autres facteurs.
 
-When a humanoid does warrant being rigged to the Epic skeleton, we agree with every review item in this list. This checklist however is not fully compatible because we don't believe line item 83 should be enforced as strictly as it currently is. 
+Lorsqu'un humanoïde justifie d'être greffé sur le squelette Epic, nous sommes d'accord avec tous les éléments de cette liste. Cette liste de contrôle n'est cependant pas entièrement compatible car nous ne pensons pas que le point 83 devrait être appliqué aussi strictement qu'il l'est actuellement. 
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 82    | Pack contains Characters                                                   | :white_check_mark::green_heart:                                                 |
 | 83    | Humanoid assets rigged to Epic skeleton                                    | :o: See section note above.                                                     |
@@ -145,7 +145,7 @@ When a humanoid does warrant being rigged to the Epic skeleton, we agree with ev
 
 ## Animation
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 90    | Pack contains Animations                                                   | :white_check_mark::green_heart:                                                 |
 | 91    | All animations imported from individual .FBX files                         | :x: Does not make sense. What about animations baked from physical simulations within UE4? What about single frame poses extracted from animations used for reference and additive posing within UE4? What about .FBX's with multiple takes in standard mo-cap pipelines using Motion Builder? |
@@ -153,7 +153,7 @@ When a humanoid does warrant being rigged to the Epic skeleton, we agree with ev
 
 ## Weapons
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 94    | Pack contains Weapons                                                      | :white_check_mark::green_heart:                                                             |
 | 95    | Weapons are scaled to epic skeleton and appear relatively scaled as intended when imported into a new project | :white_check_mark: [See #4.5](http://ue4.style#4.5) |
@@ -161,7 +161,7 @@ When a humanoid does warrant being rigged to the Epic skeleton, we agree with ev
 
 ## Particle Effects
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 98    | Pack contains Particle Effects                                             | :white_check_mark::green_heart:                                                 |
 | 99    | Emitter names are accurate and relevant to their displayed effects         |:white_check_mark::green_heart: [See #5.1](http://ue4.style#5.1)                 |
@@ -170,14 +170,14 @@ When a humanoid does warrant being rigged to the Epic skeleton, we agree with ev
 
 ## Plugins
 
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 103   | Pack utilizes Plugins                                                      | :white_check_mark:                                                              |
 | 104   | Required plugins in project are available on UE Marketplace                | :o: Marketplace specific rule, style guide does not apply.                      |
 | 105   | Unnecessary/Unused plugins are disabled                                    | :o: Blueprint only projects can sometimes be forced to need C++ compiling when disabling unused built-in plugins. Until this is fixed, can not recommend fully disabling every unused plugin. |
 
 ## Notes From Reviewer
-| Line  | Review Check Item                                                          | Compatibility Notes                                                             |
+| Ligne | Elément  examiné                                                           | Remarques sur la compatibilité                                                  |
 | :---: | :------------------------------------------------------------------------- | :------------------------------------------------------------------------------ |
 | 107   | Changes have previously been requested                                     | :o: Specific to Marketplace Review Process, style guide does not apply.         |
 | 108   | Requested Changes Have Been Implemented                                    | :o: Specific to Marketplace Review Process, style guide does not apply.         |
