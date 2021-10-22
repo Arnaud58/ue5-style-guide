@@ -996,36 +996,36 @@ L'indicateur `Config Variable` ne doit pas être utilisé. Celà rend difficile 
 
 <a name="3.3"></a>
 <a name="bp-functions"></a>
-### 3.3 Functions, Events, and Event Dispatchers
-
-This section describes how you should author functions, events, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.
+### 3.3 Fonctions, Evénements et Répartiseurs d'événements
+	
+Cette section décrit comment créer des fonctions, des événements et des réparsiteurs d'événements. Sauf indication contraire, tout ce qui s'applique aux fonctions s'applique également aux événements.
 
 <a name="3.3.1"></a>
 <a name="bp-funcs-naming"></a>
-#### 3.3.1 Function Naming
+#### 3.3.1 Nommer une fonction
 
-The naming of functions, events, and event dispatchers is critically important. Based on the name alone, certain assumptions can be made about functions. For example:
+La dénomination des fonctions, des événements et des répartiteurs d'événements est très importante. En vous basant uniquement sur le nom, vous serez en mesure de faire quelques prédictions sur la fonction. Par exemple :
 
-* Is it a pure function?
-* Is it fetching state information?
-* Is it a handler?
-* Is it an RPC?
-* What is its purpose?
+* S'agit-il d'une fonction pure ?
+* Obtient-il des informations sur l'État ?
+* C'est un manipulateur ?
+* S'agit-il d'un RPC ?
+* Quel est son objectif ?
 
-These questions and more can all be answered when functions are named appropriately.
+Tant que la fonction est correctement nommée, toutes ces questions peuvent trouver une réponse.
 
 <a name="3.3.1.1"></a>
 <a name="bp-funcs-naming-verbs"></a>
-#### 3.3.1.1 All Functions Should Be Verbs
+#### 3.3.1.1 Toutes les fonctions doivent être des verbes ! [#](https://img.shields.io/badge/lint-unsupported-red.svg)
 
-All functions and events perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.
+Toutes les fonctions et tous les événements effectuent une action, comme récupérer des informations, calculer des données ou faire exploser quelque chose. Par conséquent, toutes les fonctions doivent commencer par un verbe. Ils doivent être aussi verbeux que possible pour le moment. Ils devraient également avoir un certain contexte quant à ce que la fonction fait.
 
-`OnRep` functions, event handlers, and event dispatchers are an exception to this rule.
+La fonction `OnRep`, les gestionnaires d'événements et les répartiseurs d'événements sont des exceptions à cette règle.
 
-Good examples:
+De bons exemples :
 
-* `Fire` - Good example if in a Character / Weapon class, as it has context. Bad if in a Barrel / Grass / any ambiguous class.
-* `Jump` - Good example if in a Character class, otherwise, needs context.
+* `Fire` - Bon exemple pour les classes de personnages et d'armes, car il correspond au contexte dans lequel elle se trouve ; Mauvais exemple pour les classes Barrel/Grass et autres classes ambiguës.
+* `Jump` - Bon exemple si dans une classe de personnage, sinon le contexte est nécessaire.
 * `Explode`
 * `ReceiveMessage`
 * `SortPlayerArray`
@@ -1033,31 +1033,31 @@ Good examples:
 * `GetCoordinates`
 * `UpdateTransforms`
 * `EnableBigHeadMode`
-* `IsEnemy` - ["Is" is a verb.](http://writingexplained.org/is-is-a-verb)
+* `IsEnemy` - ["Is" est un verbe.](http://writingexplained.org/is-is-a-verb)
 
-Bad examples:
+Des mauvais exemple :
 
-* `Dead` - Is Dead? Will deaden?
-* `Rock`
-* `ProcessData` - Ambiguous, these words mean nothing.
-* `PlayerState` - Nouns are ambiguous.
-* `Color` - Verb with no context, or ambiguous noun.
+* `Dead` - Est-il mort ? Vous êtes sur le point de mourir ?
+* `Rock` - Est-ce un rocher ?
+* `ProcessData` - Vague, ces mots ne veulent rien dire.
+* `PlayerState` - Le nom est ambigu, ces mots ne veulent rien dire.
+* `Color` - Verbe sans contexte, substantif ambigu.
 
 <a name="3.3.1.2"></a>
 <a name="bp-funcs-naming-onrep"></a>
-#### 3.3.1.2 Property RepNotify Functions Always `OnRep_Variable`
+#### 3.3.1.2 La propriété de la fonction RepNotify doit toujours être de la forme `OnRep_Variable`
 
-All functions for replicated with notification variables should have the form `OnRep_Variable`. This is forced by the Blueprint editor. If you are writing a C++ `OnRep` function however, it should also follow this convention when exposing it to Blueprints.
+Toutes les fonctions qui sont répliquées dans une variable de notification doivent être de la forme `OnRep_Variable`. Ceci est appliqué par l'éditeur de Blueprint. Cependant, si vous avez écrit une fonction C++ `OnRep`, vous devez suivre cette règle lorsque vous la publiez dans les Blueprints.
 
 <a name="3.3.1.3"></a>
 <a name="bp-funcs-naming-bool"></a>
-#### 3.3.1.3 Info Functions Returning Bool Should Ask Questions
+#### 3.3.1.3 Les fonctions d'information qui retournent Bool doivent être sous forme de questions ! [#](https://img.shields.io/badge/lint-unsupported-red.svg)
 
-When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow [the verb rule](#bp-funcs-naming-verbs).
+Lorsqu'on écrit une fonction qui ne change pas l'état, ne met à jour aucun objet, mais récupère simplement une information, un état ou un oui/non pour un bool, elle doit être sous forme de question. En même temps, il doit suivre les [règles des verbes](#bp-funcs-naming-verbs).
 
-This is extremely important as if a question is not asked, it may be assumed that the function performs an action and is returning whether that action succeeded.
+C'est très important, car s'il ne s'agit pas d'une question, vous pouvez supposer que la fonction exécute une action et renvoie le résultat de cette action, qu'elle soit réussie ou non.
 
-Good examples:
+De bons exemples :
 
 * `IsDead`
 * `IsOnFire`
@@ -1065,30 +1065,30 @@ Good examples:
 * `IsSpeaking`
 * `IsHavingAnExistentialCrisis`
 * `IsVisible`
-* `HasWeapon` - ["Has" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
-* `WasCharging` - ["Was" is past-tense of "be".](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html) Use "was" when referring to 'previous frame' or 'previous state'.
-* `CanReload` - ["Can" is a verb.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
+* `HasWeapon` - ["Has" est un verbe.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
+* `WasCharging` - ["Was" est le passé de "be".](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html) Use "was" when referring to 'previous frame' or 'previous state'.
+* `CanReload` - ["Can" est un verbe.](http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html)
 
-Bad examples:
+Des mauvais exemple :
 
-* `Fire` - Is on fire? Will fire? Do fire?
-* `OnFire` - Can be confused with event dispatcher for firing.
-* `Dead` - Is dead? Will deaden?
-* `Visibility` - Is visible? Set visibility? A description of flying conditions?
+* `Fire` - Est-il en feu ? Renvoyer quelqu'un ? Brûler ?
+* `OnFire` - peut être confondu avec le répartiteur d'événements pour la mise à feu.
+* `Dead` - Est-il mort ? Est-il sur le point de mourir ?
+* `Visibility` - Visible ? Rendre visible ? Description des conditions de vol ?
 
 <a name="3.3.1.4"></a>
 <a name="bp-funcs-naming-eventhandlers"></a>
-#### 3.3.1.4 Event Handlers and Dispatchers Should Start With `On`
+#### 3.3.1.4 Les gestionnaires et répartiseurs d'événements doivent commencer par "On"
 
-Any function that handles an event or dispatches an event should start with `On` and continue to follow [the verb rule](#bp-funcs-naming-verbs). The verb may move to the end however if past-tense reads better.
+Les gestionnaires d'événements et les fonctions telles que les répartiteurs d'événements doivent commencer par `On`, et le reste doit suivre les [règles des verbes](#bp-funcs-naming-verbs). Cependant, il peut être préférable de déplacer le verbe à la fin si cela se lit bien comme une phrase passée.
 
-[Collocations](http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation) of the word `On` are exempt from following the verb rule.
+Les [verbes de liaison](http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation) du mot "On" ne sont pas soumis aux règles des verbes.
 
-`Handle` is not allowed. It is 'Unreal' to use `On` instead of `Handle`, while other frameworks may prefer to use `Handle` instead of `On`.
+L'utilisation de `Handle` n'est pas autorisée. Dans `Unreal', utilisez `On` au lieu de `Handle`, mais dans d'autres frameworks, il peut être préférable d'utiliser `Handle` au lieu de `On`.
 
-Good examples:
+De bons exemples :
 
-* `OnDeath` - Common collocation in games
+* `OnDeath` - une phrase de concaténation de jeu commune
 * `OnPickup`
 * `OnReceiveMessage`
 * `OnMessageRecieved`
@@ -1096,7 +1096,7 @@ Good examples:
 * `OnClick`
 * `OnLeave`
 
-Bad examples:
+Des mauvais exemple :
 
 * `OnData`
 * `OnTarget`
@@ -1105,132 +1105,133 @@ Bad examples:
 
 <a name="3.3.1.5"></a>
 <a name="bp-funcs-naming-rpcs"></a>
-#### 3.3.1.5 Remote Procedure Calls Should Be Prefixed With Target
+#### 3.3.1.5 Les appels de procédures à distance doivent être préfixés par une cible
 
-Any time an RPC is created, it should be prefixed with either `Server`, `Client`, or `Multicast`. No exceptions.
+Chaque fois que vous créez un RPC, il doit être préfixé par `Server`, `Client`, ou `Multicast`. Il n'y a pas d'exception.
 
-After the prefix, follow all other rules regarding function naming.
+Après le préfixe, toutes les autres règles de dénomination des fonctions doivent être respectées.
 
-Good examples:
+De bons exemples :
 
 * `ServerFireWeapon`
 * `ClientNotifyDeath`
 * `MulticastSpawnTracerEffect`
 
-Bad examples:
+Des mauvais exemple :
 
-* `FireWeapon` - Does not indicate its an RPC of some kind.
-* `ServerClientBroadcast` - Confusing.
-* `AllNotifyDeath` - Use `Multicast`, never `All`.
-* `ClientWeapon` - No verb, ambiguous.
+* `FireWeapon` - N'indique aucun type de RPC.
+* `ServerClientBroadcast` - Confusion.
+* `AllNotifyDeath` - Utilisez `Multicast`, jamais `All`.
+* `ClientWeapon` - Pas un verbe, ambiguë.
 
 
 <a name="3.3.2"></a>
 <a name="bp-funcs-return"></a>
-#### 3.3.2 All Functions Must Have Return Nodes
+#### 3.3.2 Toutes les fonctions doivent avoir un nœud Return
 
-All functions must have return nodes, no exceptions.
+Le nœud de retour est requis pour toutes les fonctions. Il n'y a pas d'exception.
 
-Return nodes explicitly note that a function has finished its execution. In a world where blueprints can be filled with `Sequence`, `ForLoopWithBreak`, and backwards reroute nodes, explicit execution flow is important for readability, maintenance, and easier debugging.
+Dans un monde où les Blueprints sont remplis de nœuds `Sequence`, `ForLoopWithBreak`, et backward reroute, un flux d'exécution explicite est important pour la lisibilité, la maintenance, et la facilité de débogage. Le flux est important pour la lisibilité, la maintenance et la facilité de débogage.
 
-The Blueprint compiler is able to follow the flow of execution and will warn you if there is a branch of your code with an unhandled return or bad flow if you use return nodes.
+Le compilateur Blueprint peut suivre le flux d'exécution et, avec le nœud Return, il avertit s'il y a un retour non géré ou un mauvais flux dans une branche du code.
 
-In situations like where a programmer may add a pin to a Sequence node or add logic after a for loop completes but the loop iteration might return early, this can often result in an accidental error in code flow. The warnings the Blueprint compiler will alert everyone of these issues immediately.
-
+Des erreurs accidentelles dans le flux de code peuvent se produire dans des situations où le programmeur ajoute une clause for, ou ajoute une logique après la fin de la boucle for, provoquant le retour prématuré de l'itération de la boucle. Les avertissements du compilateur Blueprint vous alerteront immédiatement sur tous ces problèmes.
+	
 <a name="3.3.3"></a>
 <a name="bp-graphs-funcs-node-limit"></a>
-#### 3.3.3 No Function Should Have More Than 50 Nodes
+#### 3.3.3  Le nombre de nœuds dans une fonction doit être limité à moins de 50
 
-Simply, no function should have more than 50 nodes. Any function this big should be broken down into smaller functions for readability and ease of maintenance.
+Tout d'abord, une fonction ne doit pas comporter plus de 50 nœuds. Une fonction aussi importante doit être divisée en plusieurs fonctions plus petites pour des raisons de lisibilité et de facilité de maintenance.
 
-The following nodes are not counted as they are deemed to not increase function complexity:
-
-* Comment
-* Route
-* Cast
-* Getting a Variable
-* Breaking a Struct
-* Function Entry
-* Self
+Les nœuds énumérés ci-dessous ne comptent pas, car ils n'ajoutent pas de complexité à la fonction :
+	
+* Comment 
+* Route 
+* Cast 
+* Getting a Variable 
+* Breaking a Struct 
+* Function Entry 
+* Self 
 
 <a name="3.3.4"></a>
 <a name="bp-graphs-funcs-description"></a>
-#### 3.3.4 All Public Functions Should Have A Description
+#### 3.3.4 Toutes les fonctions publiques doivent avoir une description
 
-This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.
+Cette règle s'applique à de nombreux plans publics ou du marché. Par conséquent, si cette règle est respectée, l'utilisateur de l'API blueprint pourra l'utiliser plus facilement, guidé par la description.
 
-Simply, any function that has an access specificer of Public should have its description filled out. 
+Simplement, les fonctions dont la spécification d'accès est définie comme publique doivent avoir une description complète de leur fonctionnement, etc.
 
 <a name="3.3.5"></a>
 <a name="bp-graphs-funcs-plugin-category"></a>
-#### 3.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name
+#### 3.3.5 Toutes les fonctions statiques personnalisées du plugin `BlueprintCallable` doivent être classées par nom de plugin
 
-If your project includes a plugin that defines `static` `BlueprintCallable` functions, they should have their category set to the plugin's name or a subset category of the plugin's name.
+Si votre projet contient des fonctions définies `static` et `BlueprintCallable`, comme des plugins, alors leur catégorie doit être définie comme le nom du plugin ou une catégorie de sous-ensemble du nom du plugin.
 
-For example, `Zed Camera Interface` or `Zed Camera Interface | Image Capturing`.
+Par exemple, `Zed Camera Interface` ou `Zed Camera Interface | Image Capturing`.
+	
+(([Exposer les éléments de gameplay aux Blueprints](https://docs.unrealengine.com/latest/JPN/Engine/Blueprints/TechnicalGuide/ExtendingBlueprints/index.html)))
 
 <a name="3.4"></a>
 <a name="bp-graphs"></a>
 ### 3.4 Blueprint Graphs
 
-This section covers things that apply to all Blueprint graphs.
+Cette section décrit les problèmes qui s'appliquent à tous les Blueprint graphs.
 
 <a name="3.4.1"></a>
 <a name="bp-graphs-spaghetti"></a>
-#### 3.4.1 No Spaghetti
+#### 3.4.1 Laissez tomber les spaghettis
 
-Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.
+Positionnez les fils de manière à ce que les points de départ et d'arrivée soient clairs. Pas la peine de démêler les fils dans votre tête pour comprendre le graphe. Dans les sections suivantes, nous consacrons une grande partie du document à la réduction des spaghettis.
 
 <a name="3.4.2"></a>
 <a name="bp-graphs-align-wires"></a>
-#### 3.4.2 Align Wires Not Nodes
+#### 3.4.2 Les fils doivent être alignés, pas les nœuds
 
-Always align wires, not nodes. You can't always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q
+Vous devez toujours aligner les fils, et non les nœuds. Vous ne pouvez pas toujours contrôler la taille et la position des nœuds, mais vous pouvez toujours contrôler la position des nœuds et donc des fils. Une ligne droite de fils rend le flux plus facile à suivre. Vous pouvez redresser le fil en sélectionnant le nœud et en utilisant la commande "Straigten Connections" (Touche de raccourci : Q).
 
-Good example: The tops of the nodes are staggered to keep a perfectly straight white exec line.
+Bon exemple : le haut du nœud a été déplacé pour que la ligne blanche du fil conducteur reste droite :
 ![Aligned By Wires](https://github.com/Arnaud58/ue5-style-guide/blob/main/images/bp-graphs-align-wires-good.png "Aligned By Wires")
 
-Bad Example: The tops of the nodes are aligned creating a wiggly white exec line.
+Mauvais exemple : les sommets des nœuds sont alignés, mais les lignes blanches des fils conducteurs sont inégales et ondulées :
 ![Bad](https://github.com/Arnaud58/ue5-style-guide/blob/main/images/bp-graphs-align-wires-bad.png "Wiggly")
 
-Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
+Exemple acceptable : certains nœuds peuvent ne pas fonctionner correctement quelle que soit la façon dont vous utilisez l'outil d'alignement. Dans ces situations, rapprochez les nœuds les uns des autres pour minimiser l'ondulation :
 ![Acceptable](https://github.com/Arnaud58/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png "Acceptable")
 
 <a name="3.4.3"></a>
 <a name="bp-graphs-exec-first-class"></a>
-#### 3.4.3 White Exec Lines Are Top Priority
+#### 3.4.3 Le fil d'exécution blanc doit être la première priorité
 
-If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
+Lorsqu'on a le choix entre redresser un fil d'exécution blanc et redresser un fil de données, il faut redresser le fil d'exécution blanc.
 
 <a name="3.4.4"></a>
 <a name="bp-graphs-block-comments"></a>
-#### 3.4.4 Graphs Should Be Reasonably Commented
+#### 3.4.4 Les graphiques doivent comporter des commentaires clairs
 
-Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and  description should suffice.
+Les blocs de nœuds doivent être entourés de nœuds de commentaires décrivant leur comportement général. Afin de rendre les nœuds individuels lisibles et compréhensibles, toutes les fonctions devraient être mieux nommées, et chaque groupe de nœuds qui sert un objectif devrait avoir son objectif décrit dans un bloc de commentaires. Si une fonction ne comporte pas beaucoup de blocs de nœuds, et s'il est clair que les nœuds fournissent directement l'objectif de la fonction, alors le nom de la fonction et sa description sont suffisants, et aucun commentaire n'est nécessaire.
 
 <a name="3.4.5"></a>
 <a name="bp-graphs-cast-error-handling"></a>
-#### 3.4.5 Graphs Should Handle Casting Errors Where Appropriate
+#### 3.4.5 Doit gérer les erreurs de cast aux endroits appropriés dans les graphes
 
-If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is 'supposed to work' doesn't. A function should also attempt a graceful recover after a failed cast if it's known that the reference being casted could ever fail to be casted.
+Si vous supposez que l'intégration d'une fonction ou d'un événement est toujours réussie, vous devez signaler correctement l'échec de la logique lorsque l'intégration échoue. Cela indique aux autres ce qui s'est passé, c'est-à-dire que ce qui est "censé fonctionner" a échoué. Si une référence de distribution est connue pour avoir le potentiel d'échouer une distribution, la fonction doit essayer de se rétablir normalement même après une erreur de cast.
 
-This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.
+Cela ne signifie pas que chaque nœud de distribution doit traiter cette erreur. Dans de nombreux cas, notamment en cas de collisions, une erreur de distribution entraîne la fin du flux d'exécution de manière élégante.
 
 <a name="3.4.6"></a>
 <a name="bp-graphs-dangling-nodes"></a>
-#### 3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
+#### 3.4.6 Les nœuds en suspens/libres/morts ne doivent pas être conservés dans les graphiques
 
-All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
+Chaque nœud de chaque graphe Blueprint doit avoir un but. Les nœuds de plan directeur qui traînent et qui n'ont pas d'utilité ou qui ne sont pas exécutés ne doivent pas être conservés.
 
 **[⬆ Retourner à la table des matières](#table-of-contents)**
-
 
 <a name="4"></a>
 <a name="Static Meshes"></a>
 <a name="s"></a>
 ## 4. Static Meshes
 
-This section will focus on Static Mesh assets and their internals.
+Cette section se concentre sur les Static Meshes et leurs composants internes.
 
 ### Sections
 
@@ -1240,53 +1241,54 @@ This section will focus on Static Mesh assets and their internals.
 
 > 4.3 [Modular Socketless Snapping](#s-modular-snapping)
 
-> 4.4 [Must Have Collision](#s-collision)
+> 4.4 [Collision obligatoire](#s-collision)
 
-> 4.5 [Correct Scale](#s-scaled)
+> 4.5 [Échelle correcte](#s-scaled)
 
 <a name="4.1"></a>
 <a name="s-uvs"></a>
-### 4.1 Static Mesh UVs
+### 4.1 UVs
 
-If Linter is reporting bad UVs and you can't seem to track it down, open the resulting `.log` file in your project's `Saved/Logs` folder for exact details as to why it's failing. I am hoping to include these messages in the Lint report in the future.
+Si Linter rapporte des UVs incorrects et que vous ne pouvez pas en trouver la cause, ouvrez le fichier `.log` dans le dossier `Saved/Logs` de votre projet et trouvez la raison exacte de l'échec. Je vais essayer d'inclure ces messages dans les prochains rapports Lint.
 
 <a name="4.1.1"></a>
 <a name="s-uvs-no-missing"></a>
-#### 4.1.1 All Meshes Must Have UVs
+#### 4.1.1 Tous les Meshes doivent avoir des UVs
 
-Pretty simple. All meshes, regardless how they are to be used, should not be missing UVs.
+C'est très simple. Quelle que soit la façon dont vous l'utilisez, chaque maillage doit avoir des UV.
 
 <a name="4.1.2"></a>
 <a name="s-uvs-no-overlapping"></a>
-#### 4.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps
+#### 4.1.2 Les UV de tous les Meshes ne doivent pas se chevaucher car ils sont également utilisés pour les Lightmaps
 
-Pretty simple. All meshes, regardless how they are to be used, should have valid non-overlapping UVs.
+C'est très simple. Tous les Meshes doivent avoir des UV valides et sans chevauchement, quelle que soit la façon dont ils sont utilisés.
 
 <a name="4.2"></a>
 <a name="s-lods"></a>
-### 4.2 LODs Should Be Set Up Correctly
+### 4.2 Les LODs (Level of Details) doit être réglé correctement !
+(([Création et utilisation des LODs](https://docs.unrealengine.com/latest/JPN/Engine/Content/Types/StaticMeshes/HowTo/LODs/index.html)))
 
-This is a subjective check on a per-project basis, but as a general rule any mesh that can be seen at varying distances should have proper LODs.
+Il s'agit d'une vérification subjective de base pour chaque projet, mais en règle générale, vous devez définir des LOD approprié pour les meshes qui sont affichés à des distances proches et lointaines.
 
 <a name="4.3"></a>
 <a name="s-modular-snapping"></a>
-### 4.3 Modular Socketless Assets Should Snap To The Grid Cleanly
+### 4.3 Les éléments sans sockets doivent se placer correctement sur la grille
 
-This is a subjective check on a per-asset basis, however any modular socketless assets should snap together cleanly based on the project's grid settings.
+Il s'agit d'une vérification subjective de base par asset, mais les assets sans socket d'un module doivent s'adapter parfaitement aux paramètres de la grille du projet.
 
-It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However if you are authoring modular socketless assets for the marketplace, Epic's requirement is that they snap cleanly when the grid is set to 10 units or bigger.
+La décision de s'adapter à une grille de puissances de 2 ou à une grille de 10 unités est laissée à l'appréciation du projet. Toutefois, lors de la création de ressources sans module pour le *Marketplace*, Epic exige que l'adaptation soit nette si la grille est définie sur plus de 10 unités.
 
 <a name="4.4"></a>
 <a name="s-collision"></a>
-### 4.4 All Meshes Must Have Collision
+### 4.4 Toutes les meshes doivent avoir des collisions
 
-Regardless of whether an asset is going to be used for collision in a level, all meshes should have proper collision defined. This helps the engine with things such as bounds calculations, occlusion, and lighting. Collision should also be well-formed to the asset.
+Qu'un asset soit utilisé ou non pour la collision dans un niveau, tous les meshes doivent avoir un réglage de collision approprié. Cela aidera le moteur UE4 lors du calcul des limites, de l'occlusion, de l'éclairage, etc. Les collisions doivent également correspondre aux meshes.
 
 <a name="4.5"></a>
 <a name="s-scaled"></a>
-### 4.5 All Meshes Should Be Scaled Correctly
+### 4.5 Tous les meshes doivent être correctement mis à l'échelle
 
-This is a subjective check on a per-project basis, however all assets should be scaled correctly to their project. Level designers or blueprint authors should not have to tweak the scale of meshes to get them to confirm in the editor. Scaling meshes in the engine should be treated as a scale override, not a scale correction.
+Il s'agit d'une vérification subjective de base par projet, mais tous les assets doivent être correctement mis à l'échelle pour le projet. Le concepteur de niveau ou l'auteur du plan n'a pas besoin d'ajuster l'échelle du maillage pour le voir dans l'éditeur. Les meshes de mise à l'échelle du moteur doivent être traités comme un remplacement d'échelle, et non comme une correction d'échelle.
 
 **[⬆ Retourner à la table des matières](#table-of-contents)**
 
@@ -1296,19 +1298,19 @@ This is a subjective check on a per-project basis, however all assets should be 
 <a name="ng"></a>
 ## 5. Niagara
 
-This section will focus on Niagara assets and their internals.
+Cette section se concentre sur les Niagara et leurs composants internes.
 
 ### Sections
 
-> 5.1 [Naming Rules](#ng-rules)
+> 5.1 [Règles de nommage](#ng-rules)
 
 <a name="5.1"></a>
 <a name="ng-rules"></a>
-### 5.1 No Spaces, Ever
+### 5.1 Pas d'espaces, jamais
 
-As mentioned in [00.1 Forbidden Identifiers](#00), spaces and all white space characters are forbidden in identifiers. This is especially true for Niagara systems as it makes working with things significantly harder if not impossible when working with HLSL or other means of scripting within Niagara and trying to reference an identifier.
+Comme mentionné dans [00.1 Identifiants interdits](#00), les espaces et tous les caractères d'espace blanc sont interdits dans les identifiants. Cela est particulièrement vrai pour les systèmes Niagara, car cela rend le travail nettement plus difficile, voire impossible, lorsque l'on travaille avec HLSL ou d'autres script dans Niagara et que l'on essaie de référencer un identifiant.
 
-(Original Contribution by [@dunenkoff](https://github.com/Allar/ue5-style-guide/issues/58))
+(Contribution originale par [@dunenkoff](https://github.com/Allar/ue5-style-guide/issues/58))
 
 
 **[⬆ Retourner à la table des matières](#table-of-contents)**
