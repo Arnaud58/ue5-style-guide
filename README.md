@@ -1169,7 +1169,7 @@ Si votre projet contient des fonctions définies `static` et `BlueprintCallable`
 
 Par exemple, `Zed Camera Interface` ou `Zed Camera Interface | Image Capturing`.
 	
-(([Exposer les éléments de gameplay aux Blueprints](https://docs.unrealengine.com/latest/JPN/Engine/Blueprints/TechnicalGuide/ExtendingBlueprints/index.html)))
+(([Exposer les éléments de gameplay aux Blueprints](https://docs.unrealengine.com/4.27/en-US/ProgrammingAndScripting/Blueprints/TechnicalGuide/ExtendingBlueprints/)))
 
 <a name="3.4"></a>
 <a name="bp-graphs"></a>
@@ -1266,7 +1266,7 @@ C'est très simple. Tous les Meshes doivent avoir des UV valides et sans chevauc
 <a name="4.2"></a>
 <a name="s-lods"></a>
 ### 4.2 Les LODs (Level of Details) doit être réglé correctement !
-(([Création et utilisation des LODs](https://docs.unrealengine.com/latest/JPN/Engine/Content/Types/StaticMeshes/HowTo/LODs/index.html)))
+(([Création et utilisation des LODs](https://docs.unrealengine.com/4.27/en-US/WorkingWithContent/Types/StaticMeshes/HowTo/LODs/)))
 
 Il s'agit d'une vérification subjective de base pour chaque projet, mais en règle générale, vous devez définir des LOD approprié pour les meshes qui sont affichés à des distances proches et lointaines.
 
