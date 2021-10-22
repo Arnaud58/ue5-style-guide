@@ -1295,7 +1295,7 @@ Il s'agit d'une vérification subjective de base par projet, mais tous les asset
 
 <a name="5"></a>
 <a name="Niagara"></a>
-<a name="ng"></a>
+<a name="ps"></a>
 ## 5. Niagara
 
 Cette section se concentre sur les Niagara et leurs composants internes.
@@ -1305,7 +1305,7 @@ Cette section se concentre sur les Niagara et leurs composants internes.
 > 5.1 [Règles de nommage](#ng-rules)
 
 <a name="5.1"></a>
-<a name="ng-rules"></a>
+<a name="ps-rules"></a>
 ### 5.1 Pas d'espaces, jamais
 
 Comme mentionné dans [00.1 Identifiants interdits](#00), les espaces et tous les caractères d'espace blanc sont interdits dans les identifiants. Cela est particulièrement vrai pour les systèmes Niagara, car cela rend le travail nettement plus difficile, voire impossible, lorsque l'on travaille avec HLSL ou d'autres script dans Niagara et que l'on essaie de référencer un identifiant.
@@ -1321,47 +1321,47 @@ Comme mentionné dans [00.1 Identifiants interdits](#00), les espaces et tous le
 <a name="levels"></a>
 ## 6. Levels / Maps
 
-[See Terminology Note](#terms-level-map) regarding "levels" vs "maps".
+[Voir Niveaux/Cartes pour les termes clés](#terms-level-map) à propos des "niveaux" et des "cartes".
 
-This section will focus on Level assets and their internals.
+Cette section se concentre sur les Levels et leurs composants internes.
 
 ### Sections
 
-> 6.1 [No Errors Or Warnings](#levels-no-errors-or-warnings)
+> 6.1 [Pas d'erreurs ni d'avertissements](#levels-no-errors-or-warnings)
 
-> 6.2 [Lighting Should Be Built](#levels-lighting-should-be-built)
+> 6.2 [L'éclairage doit être construit](#levels-lighting-should-be-built)
 
-> 6.3 [No Player Visible Z Fighting](#evels-no-visible-z-fighting)
+> 6.3 [Ne laissez pas les joueurs voir votre Z-Fighting](#evels-no-visible-z-fighting)
 
-> 6.4 [Marketplace Specific Rules](#evels-levels-mp-rules)
+> 6.4 [Règles spéciales du Marketplace](#evels-levels-mp-rules)
 
 <a name="6.1"></a>
 <a name="levels-no-errors-or-warnings"></a>
-### 6.1 No Errors Or Warnings
+### 6.1 Pas d'erreurs ni d'avertissements
 
-All levels should load with zero errors or warnings. If a level loads with any errors or warnings, they should be fixed immediately to prevent cascading issues.
+Tous les niveaux doivent être chargés sans erreur ni avertissement. Si un niveau contient des erreurs ou des avertissements, il doit être corrigé immédiatement pour éviter les problèmes en cascade.
 
-You can run a map check on an open level in the editor by using the console command "map check".
+Vous pouvez vérifier la carte du niveau que vous avez ouvert dans l'éditeur en utilisant la commande "map check" dans la console.
 
-Please note: Linter is even more strict on this than the editor is currently, and will catch load errors that the editor will resolve on its own.
+Note : Linter est plus strict que le contrôle de l'éditeur actuel. Il rattrapera toutes les erreurs de chargement que l'éditeur résout lui-même.
 
 <a name="6.2"></a>
 <a name="levels-lighting-should-be-built"></a>
-### 6.2 Lighting Should Be Built
+### 6.2 L'éclairage doit être construit
 
-It is normal during development for levels to occasionally not have lighting built. When doing a test/internal/shipping build or any build that is to be distributed however, lighting should always be built.
+Au cours du développement, il peut arriver que les niveaux ne comportent pas d'éclairage, ce qui n'est pas grave. Cependant, s'il s'agit de distributions, de constructions de test/interne/expédition ou d'autres constructions, vous devez toujours faire une construction d'éclairage.
 
 <a name="6.3"></a>
 <a name="levels-no-visible-z-fighting"></a>
-### 6.3 No Player Visible Z Fighting
+### 6.3 Ne laissez pas les joueurs voir votre Z-Fighting
 
-Levels should not have any [z-fighting](https://en.wikipedia.org/wiki/Z-fighting) in all areas visible to the player. 
+Le niveau doit éliminer les [z-combats](https://en.wikipedia.org/wiki/Z-fighting) dans toutes les zones visibles par le joueur.
 
 <a name="6.4"></a>
 <a name="levels-mp-rules"></a>
-### 6.4 Marketplace Specific Rules
+### 6.4 Règles spéciales pour le *Marketplace*
 
-If a project is to be sold on the UE4 Marketplace, it must follow these rules.
+Si vous souhaitez vendre votre projet sur la place de marché UE4, vous devez respecter les règles suivantes
 
 <a name="6.4.1"></a>
 <a name="levels-mp-rules-overview"></a>
@@ -1375,13 +1375,13 @@ For example, `InteractionComponent_Overview`.
 
 <a name="6.4.2"></a>
 <a name="levels-mp-rules-demo"></a>
-### 6.4.2 Demo Level
+### 6.4.2 Niveaux de Demo
 
-If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name "Demo". This level should also contain documentation within it in some form that illustrates how to use your project. See Epic's Content Examples project for good examples on how to do this.
+Si votre projet contient des assets qui doivent être visualisés ou montrés, il est obligatoire de créer une carte nommée "Overview" dans votre projet.
 
-If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your "Overview" map.
+Cette carte "Overview" sera utilisée si les assets sont visualisés dans [les directives d'Epic](http://help.epicgames.com/customer/en/portal/articles/2592186-marketplace-). submission-guidelines-preparing-your-assets#Required%20Levels%20and%20Maps).
 
-For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
+Par exemple, `InteractionComponent_Overview`.
 
 **[⬆ Retourner à la table des matières](#table-of-contents)**
 
@@ -1390,45 +1390,45 @@ For example, `InteractionComponent_Overview_Demo`, `ExplosionKit_Demo`.
 <a name="textures"></a>
 ## 7. Textures
 
-This section will focus on Texture assets and their internals.
+Cette section se concentre sur les Textures et leurs composants internes.
 
 ### Sections
 
-> 7.1 [Dimensions Are Powers of 2](#textures-dimension)
+> 7.1 [Les dimensions doivent être une puissance de 2](#textures-dimension)
 
-> 7.2 [Texture Density Should Be Uniform](#textures-dimension)
+> 7.2 [La densité des textures doit être cohérente](#textures-dimension)
 
-> 7.3 [Textures Should Be No Bigger than 8192](#textures-max-size)
+> 7.3 [La taille des textures ne doit pas dépasser 8192](#textures-max-size)
 
-> 7.4 [Correct Texture Groups](#textures-textures-group)
+> 7.4 [Les textures doivent être groupées correctement](#textures-textures-group)
 
 <a name="7.1"></a>
 <a name="textures-dimensions"></a>
-### 7.1 Dimensions Are Powers of 2
+### 7.1 Les dimensions doivent être une puissance de 2
 
-All textures, except for UI textures, must have its dimensions in multiples of powers of 2. Textures do not have to be square.
+Toutes les textures, à l'exception des textures d'interface utilisateur, doivent avoir une puissance de deux dans leurs dimensions. En outre, les textures ne doivent pas nécessairement être carrées.
 
-For example, `128x512`, `1024x1024`, `2048x1024`, `1024x2048`, `1x512`.
+Par exemple, `128x512`, `1024x1024`, `2048x1024`, `1024x2048`, `1x512`.
 
 <a name="7.2"></a>
 <a name="textures-density"></a>
-### 7.2 Texture Density Should Be Uniform
+### 7.2 La densité des textures (DPI) devrait être unifiée
 
-All textures should be of a size appropriate for their standard use case. Appropriate texture density varies from project to project, but all textures within that project should have a consistent density.
+Toutes les textures doivent être dimensionnées pour convenir à leur cas d'utilisation standard. La densité de texture appropriée varie d'un projet à l'autre, mais toutes les textures d'un même projet doivent avoir une densité constante.
 
-For example, if a project's texture density is 8 pixel per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project's texture density. 
+Par exemple, si la densité de texture du projet est de 8 pixels par unité, alors la texture appliquée à un cube de 100x100 unités devrait être de 1024x1024, soit une puissance de 2, la plus proche de la densité de texture du projet.
 
-<a name="7.3"></a>
+<a name="7.3"></a></a>
 <a name="textures-max-size"></a>
-### 7.3 Textures Should Be No Bigger than 8192
+### 7.3 Les textures ne devraient pas être plus grandes que 8K (8192)
 
-No texture should have a dimension that exceeds 8192 in size, unless you have a very explicit reason to do so. Often, using a texture this big is simply just a waste of resources.
+À moins qu'il n'y ait une raison très explicite, les textures ne devraient pas être plus grandes que 8192. Dans de nombreux cas, l'utilisation de textures plus grandes que cela est simplement un gaspillage de ressources.
 
-<a name="7.4"></a>
+<a name="7.4"></a></a>
 <a name="textures-group"></a>
-### 7.4 Textures Should Be Grouped Correctly
+### 7.4 Les textures doivent être groupées correctement
 
-Every texture has a Texture Group property used for LODing, and this should be set correctly based on its use. For example, all UI textures should belong in the UI texture group.
+Chaque texture possède une propriété de groupe de textures qui est utilisée pour les LODs. Et il doit être réglé correctement en fonction de l'utilisation. Par exemple, toutes les textures de l'interface utilisateur doivent appartenir au groupe des textures de l'interface utilisateur.
 
 **[⬆ Retourner à la table des matières](#table-of-contents)**
 
